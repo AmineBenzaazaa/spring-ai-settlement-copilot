@@ -1,0 +1,36 @@
+{
+    "content": [
+        {
+            "id": 2,
+            "resultId": 14,
+            "statementId": 1,
+            "trackingNumber": "SPX-100001",
+            "outcome": "MISSING_FROM_STATEMENT",
+            "merchantId": 1,
+            "reason": "Delivered parcel missing from the October statement",
+            "claimedAmount": "480.50",
+            "status": "OPEN",
+            "resolutionNote": null,
+            "createdAt": "2026-11-22T19:02:24.119841Z",
+            "resolvedAt": null
+        },
+        {
+            "id": 1,
+            "resultId": 3,
+            "statementId": 1,
+            "trackingNumber": "SPX-100007",
+            "outcome": "AMOUNT_MISMATCH",
+            "merchantId": 1,
+            "reason": "Courier short-paid 50 MAD on this parcel",
+            "claimedAmount": "50.00",
+            "status": "OPEN",
+            "resolutionNote": null,
+            "createdAt": "2026-11-22T19:02:24.094988Z",
+            "resolvedAt": null
+        }
+    ],
+    "page": 0,
+    "size": 100,
+    "totalElements": 2,
+    "totalPages": 1
+}

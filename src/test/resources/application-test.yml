@@ -1,0 +1,20 @@
+copilot:
+  mode: demo
+  desk-base-url: http://desk.test
+  demo:
+    token-delay: 0ms
+  jwt:
+    # test-only value, signs the tokens minted by TestTokens
+    secret: test-only-secret-for-the-copilot-suite-0123456789
+    issuer: cod-settlement
+  settlement:
+    connect-timeout: 500ms
+    read-timeout: 1s
+resilience4j:
+  retry:
+    instances:
+      settlement:
+        wait-duration: 20ms
+logging:
+  level:
+    org.springframework.ai: WARN

@@ -1,0 +1,56 @@
+{
+    "content": [
+        {
+            "id": 2,
+            "merchantId": 1,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-100002",
+            "customerName": "Youssef Tazi",
+            "customerPhone": "+212679067502",
+            "city": "Casablanca",
+            "amountDue": "658.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-03T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 2,
+                    "attemptedAt": "2026-10-03T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.612437Z",
+            "updatedAt": "2026-11-22T19:01:06.612437Z"
+        },
+        {
+            "id": 4,
+            "merchantId": 1,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-100004",
+            "customerName": "Khadija Alaoui",
+            "customerPhone": "+212628515241",
+            "city": "Casablanca",
+            "amountDue": "312.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-05T13:00:00Z",
+            "attempts": [
+                {
+                    "id": 4,
+                    "attemptedAt": "2026-10-05T13:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.614894Z",
+            "updatedAt": "2026-11-22T19:01:06.614894Z"
+        }
+    ],
+    "page": 0,
+    "size": 50,
+    "totalElements": 2,
+    "totalPages": 1
+}

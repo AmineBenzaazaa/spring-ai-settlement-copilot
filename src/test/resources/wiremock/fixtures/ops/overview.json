@@ -1,0 +1,39 @@
+{
+    "merchantId": null,
+    "currency": "MAD",
+    "expectedCollections": "21107.00",
+    "reportedCollections": "4057.50",
+    "fees": "225.00",
+    "netRemitted": "3832.50",
+    "balanceOwed": "17049.50",
+    "openDisputes": 2,
+    "openDisputedAmount": "530.50",
+    "discrepancies": 3,
+    "discrepancyAmount": "729.50",
+    "couriers": [
+        {
+            "courierId": 2,
+            "name": "Rapido Express",
+            "code": "rapido",
+            "active": true,
+            "deliveredOrders": 21,
+            "expectedCollections": "11197.00",
+            "reportedCollections": "0.00",
+            "fees": "0.00",
+            "netRemitted": "0.00",
+            "balanceOwed": "11197.00"
+        },
+        {
+            "courierId": 1,
+            "name": "Speedex Colis",
+            "code": "speedex",
+            "active": true,
+            "deliveredOrders": 21,
+            "expectedCollections": "9910.00",
+            "reportedCollections": "4057.50",
+            "fees": "225.00",
+            "netRemitted": "3832.50",
+            "balanceOwed": "5852.50"
+        }
+    ]
+}

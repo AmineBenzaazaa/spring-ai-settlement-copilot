@@ -1,0 +1,251 @@
+{
+    "statement": {
+        "id": 1,
+        "merchantId": 1,
+        "courierId": 1,
+        "periodStart": "2026-10-01",
+        "periodEnd": "2026-10-31",
+        "originalFilename": "sample_remittance.csv",
+        "fileSha256": "a3b9bd47f97e33e382339ef9568923a6ea9b0b09011de1e9bf0cc5d78bb475b0",
+        "currency": "MAD",
+        "status": "RECONCILED",
+        "errorMessage": null,
+        "lineCount": 13,
+        "uploadedAt": "2026-11-22T19:02:22.787935Z",
+        "reconciledAt": "2026-11-22T19:02:22.870691Z"
+    },
+    "summary": {
+        "counts": {
+            "MATCHED": 11,
+            "UNKNOWN_TRACKING": 1,
+            "MISSING_FROM_STATEMENT": 1,
+            "AMOUNT_MISMATCH": 1
+        },
+        "expectedTotal": "4588.00",
+        "collectedTotal": "4256.50",
+        "feesTotal": "250.00",
+        "netRemitted": "4006.50",
+        "differenceTotal": "-331.50"
+    },
+    "results": [
+        {
+            "id": 3,
+            "outcome": "AMOUNT_MISMATCH",
+            "trackingNumber": "SPX-100007",
+            "orderId": 7,
+            "line": {
+                "rowNumber": 3,
+                "trackingNumber": "SPX-100007",
+                "amountCollected": "817.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "867.50",
+            "collectedAmount": "817.50",
+            "difference": "-50.00",
+            "hasDispute": true
+        },
+        {
+            "id": 1,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100003",
+            "orderId": 3,
+            "line": {
+                "rowNumber": 1,
+                "trackingNumber": "SPX-100003",
+                "amountCollected": "0.00",
+                "fee": "10.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "0.00",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 2,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100005",
+            "orderId": 5,
+            "line": {
+                "rowNumber": 2,
+                "trackingNumber": "SPX-100005",
+                "amountCollected": "0.00",
+                "fee": "10.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "0.00",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 4,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100009",
+            "orderId": 9,
+            "line": {
+                "rowNumber": 4,
+                "trackingNumber": "SPX-100009",
+                "amountCollected": "528.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "528.50",
+            "collectedAmount": "528.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 5,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100013",
+            "orderId": 13,
+            "line": {
+                "rowNumber": 5,
+                "trackingNumber": "SPX-100013",
+                "amountCollected": "395.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "395.50",
+            "collectedAmount": "395.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 6,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100015",
+            "orderId": 15,
+            "line": {
+                "rowNumber": 6,
+                "trackingNumber": "SPX-100015",
+                "amountCollected": "0.00",
+                "fee": "10.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "0.00",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 7,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100019",
+            "orderId": 19,
+            "line": {
+                "rowNumber": 7,
+                "trackingNumber": "SPX-100019",
+                "amountCollected": "260.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "260.50",
+            "collectedAmount": "260.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 8,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100021",
+            "orderId": 21,
+            "line": {
+                "rowNumber": 8,
+                "trackingNumber": "SPX-100021",
+                "amountCollected": "812.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "812.50",
+            "collectedAmount": "812.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 9,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100023",
+            "orderId": 23,
+            "line": {
+                "rowNumber": 9,
+                "trackingNumber": "SPX-100023",
+                "amountCollected": "0.00",
+                "fee": "10.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "0.00",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 10,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100025",
+            "orderId": 25,
+            "line": {
+                "rowNumber": 10,
+                "trackingNumber": "SPX-100025",
+                "amountCollected": "444.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "444.50",
+            "collectedAmount": "444.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 11,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100027",
+            "orderId": 27,
+            "line": {
+                "rowNumber": 11,
+                "trackingNumber": "SPX-100027",
+                "amountCollected": "798.50",
+                "fee": "25.00"
+            },
+            "expectedAmount": "798.50",
+            "collectedAmount": "798.50",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 12,
+            "outcome": "MATCHED",
+            "trackingNumber": "SPX-100029",
+            "orderId": 29,
+            "line": {
+                "rowNumber": 12,
+                "trackingNumber": "SPX-100029",
+                "amountCollected": "0.00",
+                "fee": "10.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "0.00",
+            "difference": "0.00",
+            "hasDispute": false
+        },
+        {
+            "id": 14,
+            "outcome": "MISSING_FROM_STATEMENT",
+            "trackingNumber": "SPX-100001",
+            "orderId": 1,
+            "line": null,
+            "expectedAmount": "480.50",
+            "collectedAmount": "0.00",
+            "difference": "-480.50",
+            "hasDispute": true
+        },
+        {
+            "id": 13,
+            "outcome": "UNKNOWN_TRACKING",
+            "trackingNumber": "SPX-UNKNOWN01",
+            "orderId": null,
+            "line": {
+                "rowNumber": 13,
+                "trackingNumber": "SPX-UNKNOWN01",
+                "amountCollected": "199.00",
+                "fee": "25.00"
+            },
+            "expectedAmount": "0.00",
+            "collectedAmount": "199.00",
+            "difference": "199.00",
+            "hasDispute": false
+        }
+    ]
+}

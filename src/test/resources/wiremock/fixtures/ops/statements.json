@@ -1,0 +1,23 @@
+{
+    "content": [
+        {
+            "id": 1,
+            "merchantId": 1,
+            "courierId": 1,
+            "periodStart": "2026-10-01",
+            "periodEnd": "2026-10-31",
+            "originalFilename": "sample_remittance.csv",
+            "fileSha256": "a3b9bd47f97e33e382339ef9568923a6ea9b0b09011de1e9bf0cc5d78bb475b0",
+            "currency": "MAD",
+            "status": "RECONCILED",
+            "errorMessage": null,
+            "lineCount": 13,
+            "uploadedAt": "2026-11-22T19:02:22.787935Z",
+            "reconciledAt": "2026-11-22T19:02:22.870691Z"
+        }
+    ],
+    "page": 0,
+    "size": 50,
+    "totalElements": 1,
+    "totalPages": 1
+}

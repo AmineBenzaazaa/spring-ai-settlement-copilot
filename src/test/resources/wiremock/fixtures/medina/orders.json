@@ -1,0 +1,728 @@
+{
+    "content": [
+        {
+            "id": 41,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200011",
+            "customerName": "Omar El Idrissi",
+            "customerPhone": "+212692250369",
+            "city": "Rabat",
+            "amountDue": "895.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-12T15:00:00Z",
+            "attempts": [
+                {
+                    "id": 41,
+                    "attemptedAt": "2026-10-12T15:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.670874Z",
+            "updatedAt": "2026-11-22T19:01:06.670874Z"
+        },
+        {
+            "id": 43,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200013",
+            "customerName": "Imane Alaoui",
+            "customerPhone": "+212693396255",
+            "city": "Rabat",
+            "amountDue": "854.50",
+            "currency": "MAD",
+            "status": "RETURNED",
+            "deliveredAt": null,
+            "attempts": [
+                {
+                    "id": 43,
+                    "attemptedAt": "2026-10-14T16:00:00Z",
+                    "outcome": "REFUSED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.672866Z",
+            "updatedAt": "2026-11-22T19:01:06.672866Z"
+        },
+        {
+            "id": 50,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200020",
+            "customerName": "Salma Bennani",
+            "customerPhone": "+212644565871",
+            "city": "Agadir",
+            "amountDue": "811.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-21T14:00:00Z",
+            "attempts": [
+                {
+                    "id": 50,
+                    "attemptedAt": "2026-10-21T14:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.680594Z",
+            "updatedAt": "2026-11-22T19:01:06.680594Z"
+        },
+        {
+            "id": 36,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200006",
+            "customerName": "Mehdi Berrada",
+            "customerPhone": "+212629541364",
+            "city": "Agadir",
+            "amountDue": "787.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-07T11:00:00Z",
+            "attempts": [
+                {
+                    "id": 36,
+                    "attemptedAt": "2026-10-07T11:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.666062Z",
+            "updatedAt": "2026-11-22T19:01:06.666062Z"
+        },
+        {
+            "id": 51,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200021",
+            "customerName": "Salma Berrada",
+            "customerPhone": "+212631953190",
+            "city": "Rabat",
+            "amountDue": "771.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-22T12:00:00Z",
+            "attempts": [
+                {
+                    "id": 51,
+                    "attemptedAt": "2026-10-22T12:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.681534Z",
+            "updatedAt": "2026-11-22T19:01:06.681534Z"
+        },
+        {
+            "id": 60,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200030",
+            "customerName": "Mehdi Tazi",
+            "customerPhone": "+212662005492",
+            "city": "Fes",
+            "amountDue": "766.00",
+            "currency": "MAD",
+            "status": "RETURNED",
+            "deliveredAt": null,
+            "attempts": [
+                {
+                    "id": 60,
+                    "attemptedAt": "2026-10-03T14:00:00Z",
+                    "outcome": "REFUSED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.691449Z",
+            "updatedAt": "2026-11-22T19:01:06.691449Z"
+        },
+        {
+            "id": 48,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200018",
+            "customerName": "Youssef Berrada",
+            "customerPhone": "+212634325183",
+            "city": "Fes",
+            "amountDue": "690.50",
+            "currency": "MAD",
+            "status": "SHIPPED",
+            "deliveredAt": null,
+            "attempts": [
+                {
+                    "id": 48,
+                    "attemptedAt": "2026-10-19T11:00:00Z",
+                    "outcome": "NO_ANSWER",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.678451Z",
+            "updatedAt": "2026-11-22T19:01:06.678451Z"
+        },
+        {
+            "id": 58,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200028",
+            "customerName": "Sara Fassi",
+            "customerPhone": "+212657807320",
+            "city": "Marrakech",
+            "amountDue": "684.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-29T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 58,
+                    "attemptedAt": "2026-10-29T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.689584Z",
+            "updatedAt": "2026-11-22T19:01:06.689584Z"
+        },
+        {
+            "id": 42,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200012",
+            "customerName": "Khadija Berrada",
+            "customerPhone": "+212699864383",
+            "city": "Agadir",
+            "amountDue": "669.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-13T10:00:00Z",
+            "attempts": [
+                {
+                    "id": 42,
+                    "attemptedAt": "2026-10-13T10:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.671876Z",
+            "updatedAt": "2026-11-22T19:01:06.671876Z"
+        },
+        {
+            "id": 32,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200002",
+            "customerName": "Youssef Alaoui",
+            "customerPhone": "+212644233297",
+            "city": "Agadir",
+            "amountDue": "664.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-03T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 32,
+                    "attemptedAt": "2026-10-03T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.661879Z",
+            "updatedAt": "2026-11-22T19:01:06.661879Z"
+        },
+        {
+            "id": 46,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200016",
+            "customerName": "Hamza Bennani",
+            "customerPhone": "+212685675754",
+            "city": "Fes",
+            "amountDue": "642.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-17T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 46,
+                    "attemptedAt": "2026-10-17T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.676275Z",
+            "updatedAt": "2026-11-22T19:01:06.676275Z"
+        },
+        {
+            "id": 40,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200010",
+            "customerName": "Salma El Idrissi",
+            "customerPhone": "+212658262515",
+            "city": "Casablanca",
+            "amountDue": "640.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-11T11:00:00Z",
+            "attempts": [
+                {
+                    "id": 40,
+                    "attemptedAt": "2026-10-11T11:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.670023Z",
+            "updatedAt": "2026-11-22T19:01:06.670023Z"
+        },
+        {
+            "id": 37,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200007",
+            "customerName": "Mehdi Chraibi",
+            "customerPhone": "+212694994953",
+            "city": "Casablanca",
+            "amountDue": "595.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-08T13:00:00Z",
+            "attempts": [
+                {
+                    "id": 37,
+                    "attemptedAt": "2026-10-08T13:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.667082Z",
+            "updatedAt": "2026-11-22T19:01:06.667082Z"
+        },
+        {
+            "id": 52,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200022",
+            "customerName": "Sara Bennani",
+            "customerPhone": "+212693325283",
+            "city": "Agadir",
+            "amountDue": "550.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-23T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 52,
+                    "attemptedAt": "2026-10-23T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.682442Z",
+            "updatedAt": "2026-11-22T19:01:06.682442Z"
+        },
+        {
+            "id": 55,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200025",
+            "customerName": "Sara Bennani",
+            "customerPhone": "+212639126405",
+            "city": "Casablanca",
+            "amountDue": "508.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-26T14:00:00Z",
+            "attempts": [
+                {
+                    "id": 55,
+                    "attemptedAt": "2026-10-26T14:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.686579Z",
+            "updatedAt": "2026-11-22T19:01:06.686579Z"
+        },
+        {
+            "id": 45,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200015",
+            "customerName": "Hamza El Idrissi",
+            "customerPhone": "+212652435307",
+            "city": "Marrakech",
+            "amountDue": "502.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-16T16:00:00Z",
+            "attempts": [
+                {
+                    "id": 45,
+                    "attemptedAt": "2026-10-16T16:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.674732Z",
+            "updatedAt": "2026-11-22T19:01:06.674732Z"
+        },
+        {
+            "id": 31,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200001",
+            "customerName": "Mehdi Tazi",
+            "customerPhone": "+212697674357",
+            "city": "Tangier",
+            "amountDue": "424.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-02T11:00:00Z",
+            "attempts": [
+                {
+                    "id": 31,
+                    "attemptedAt": "2026-10-02T11:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.660797Z",
+            "updatedAt": "2026-11-22T19:01:06.660797Z"
+        },
+        {
+            "id": 44,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200014",
+            "customerName": "Sara Alaoui",
+            "customerPhone": "+212617759277",
+            "city": "Oujda",
+            "amountDue": "413.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-15T13:00:00Z",
+            "attempts": [
+                {
+                    "id": 44,
+                    "attemptedAt": "2026-10-15T13:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.673842Z",
+            "updatedAt": "2026-11-22T19:01:06.673842Z"
+        },
+        {
+            "id": 54,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200024",
+            "customerName": "Sara Berrada",
+            "customerPhone": "+212613481193",
+            "city": "Marrakech",
+            "amountDue": "393.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-25T15:00:00Z",
+            "attempts": [
+                {
+                    "id": 54,
+                    "attemptedAt": "2026-10-25T15:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.684258Z",
+            "updatedAt": "2026-11-22T19:01:06.684258Z"
+        },
+        {
+            "id": 38,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200008",
+            "customerName": "Youssef Berrada",
+            "customerPhone": "+212664552813",
+            "city": "Rabat",
+            "amountDue": "386.00",
+            "currency": "MAD",
+            "status": "SHIPPED",
+            "deliveredAt": null,
+            "attempts": [
+                {
+                    "id": 38,
+                    "attemptedAt": "2026-10-09T11:00:00Z",
+                    "outcome": "NO_ANSWER",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.668053Z",
+            "updatedAt": "2026-11-22T19:01:06.668053Z"
+        },
+        {
+            "id": 49,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200019",
+            "customerName": "Khadija El Idrissi",
+            "customerPhone": "+212623576452",
+            "city": "Fes",
+            "amountDue": "353.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-20T15:00:00Z",
+            "attempts": [
+                {
+                    "id": 49,
+                    "attemptedAt": "2026-10-20T15:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.679579Z",
+            "updatedAt": "2026-11-22T19:01:06.679579Z"
+        },
+        {
+            "id": 56,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200026",
+            "customerName": "Salma Chraibi",
+            "customerPhone": "+212669374320",
+            "city": "Agadir",
+            "amountDue": "320.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-27T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 56,
+                    "attemptedAt": "2026-10-27T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.687563Z",
+            "updatedAt": "2026-11-22T19:01:06.687563Z"
+        },
+        {
+            "id": 59,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200029",
+            "customerName": "Youssef Berrada",
+            "customerPhone": "+212629412690",
+            "city": "Rabat",
+            "amountDue": "311.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-02T15:00:00Z",
+            "attempts": [
+                {
+                    "id": 59,
+                    "attemptedAt": "2026-10-02T15:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.690487Z",
+            "updatedAt": "2026-11-22T19:01:06.690487Z"
+        },
+        {
+            "id": 34,
+            "merchantId": 2,
+            "courierId": 2,
+            "courierName": "Rapido Express",
+            "trackingNumber": "RPD-200004",
+            "customerName": "Salma El Idrissi",
+            "customerPhone": "+212626590940",
+            "city": "Oujda",
+            "amountDue": "305.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-05T13:00:00Z",
+            "attempts": [
+                {
+                    "id": 34,
+                    "attemptedAt": "2026-10-05T13:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.663774Z",
+            "updatedAt": "2026-11-22T19:01:06.663774Z"
+        },
+        {
+            "id": 57,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200027",
+            "customerName": "Mehdi Alaoui",
+            "customerPhone": "+212675285475",
+            "city": "Fes",
+            "amountDue": "275.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-28T09:00:00Z",
+            "attempts": [
+                {
+                    "id": 57,
+                    "attemptedAt": "2026-10-28T09:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.688563Z",
+            "updatedAt": "2026-11-22T19:01:06.688563Z"
+        },
+        {
+            "id": 47,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200017",
+            "customerName": "Imane Fassi",
+            "customerPhone": "+212677047896",
+            "city": "Marrakech",
+            "amountDue": "255.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-18T12:00:00Z",
+            "attempts": [
+                {
+                    "id": 47,
+                    "attemptedAt": "2026-10-18T12:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.677284Z",
+            "updatedAt": "2026-11-22T19:01:06.677284Z"
+        },
+        {
+            "id": 39,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200009",
+            "customerName": "Mehdi Berrada",
+            "customerPhone": "+212699217110",
+            "city": "Agadir",
+            "amountDue": "174.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-10T13:00:00Z",
+            "attempts": [
+                {
+                    "id": 39,
+                    "attemptedAt": "2026-10-10T13:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.668995Z",
+            "updatedAt": "2026-11-22T19:01:06.668995Z"
+        },
+        {
+            "id": 35,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200005",
+            "customerName": "Khadija Tazi",
+            "customerPhone": "+212633189193",
+            "city": "Agadir",
+            "amountDue": "161.00",
+            "currency": "MAD",
+            "status": "RETURNED",
+            "deliveredAt": null,
+            "attempts": [
+                {
+                    "id": 35,
+                    "attemptedAt": "2026-10-06T11:00:00Z",
+                    "outcome": "REFUSED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.664966Z",
+            "updatedAt": "2026-11-22T19:01:06.664966Z"
+        },
+        {
+            "id": 53,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200023",
+            "customerName": "Omar Chraibi",
+            "customerPhone": "+212667357562",
+            "city": "Casablanca",
+            "amountDue": "146.50",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-24T15:00:00Z",
+            "attempts": [
+                {
+                    "id": 53,
+                    "attemptedAt": "2026-10-24T15:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.683368Z",
+            "updatedAt": "2026-11-22T19:01:06.683368Z"
+        },
+        {
+            "id": 33,
+            "merchantId": 2,
+            "courierId": 1,
+            "courierName": "Speedex Colis",
+            "trackingNumber": "SPX-200003",
+            "customerName": "Hamza El Idrissi",
+            "customerPhone": "+212662320098",
+            "city": "Agadir",
+            "amountDue": "110.00",
+            "currency": "MAD",
+            "status": "DELIVERED",
+            "deliveredAt": "2026-10-04T10:00:00Z",
+            "attempts": [
+                {
+                    "id": 33,
+                    "attemptedAt": "2026-10-04T10:00:00Z",
+                    "outcome": "DELIVERED",
+                    "note": null
+                }
+            ],
+            "createdAt": "2026-11-22T19:01:06.662765Z",
+            "updatedAt": "2026-11-22T19:01:06.662765Z"
+        }
+    ],
+    "page": 0,
+    "size": 50,
+    "totalElements": 30,
+    "totalPages": 1
+}

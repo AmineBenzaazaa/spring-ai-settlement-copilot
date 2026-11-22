@@ -1,0 +1,11 @@
+{
+    "courierId": 2,
+    "merchantId": null,
+    "currency": "MAD",
+    "deliveredOrders": 21,
+    "expectedCollections": "11197.00",
+    "reportedCollections": "0.00",
+    "fees": "0.00",
+    "netRemitted": "0.00",
+    "balanceOwed": "11197.00"
+}
