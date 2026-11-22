@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.support;
+package com.msetransport.copilot.support;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;

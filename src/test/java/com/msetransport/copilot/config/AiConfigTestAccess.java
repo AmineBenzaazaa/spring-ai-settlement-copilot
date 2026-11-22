@@ -1,7 +1,7 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
-import com.benzaazaa.copilot.knowledge.KnowledgeTools;
-import com.benzaazaa.copilot.tools.SettlementTools;
+import com.msetransport.copilot.knowledge.KnowledgeTools;
+import com.msetransport.copilot.tools.SettlementTools;
 
 /** Lets tests outside the package build the same toolbox the application uses. */
 public final class AiConfigTestAccess {

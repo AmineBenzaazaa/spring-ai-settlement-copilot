@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
 /** What the offline planner understood the question to be about. */
 public enum Intent {

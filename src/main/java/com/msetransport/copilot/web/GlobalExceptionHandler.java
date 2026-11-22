@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.web;
+package com.msetransport.copilot.web;
 
 import jakarta.validation.ConstraintViolationException;
 import java.net.URI;
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-    private static final String TYPE = "https://settlement-copilot.local/problems/";
+    private static final String TYPE = "https://copilot.msetransport.com/problems/";
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers,

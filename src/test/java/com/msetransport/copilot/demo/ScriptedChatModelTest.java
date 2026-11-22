@@ -1,8 +1,8 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.Language;
+import com.msetransport.copilot.chat.Language;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Duration;
 import java.util.List;

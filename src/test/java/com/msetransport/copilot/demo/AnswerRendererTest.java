@@ -1,9 +1,9 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.Language;
-import com.benzaazaa.copilot.demo.AnswerRenderer.NamedResult;
+import com.msetransport.copilot.chat.Language;
+import com.msetransport.copilot.demo.AnswerRenderer.NamedResult;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;

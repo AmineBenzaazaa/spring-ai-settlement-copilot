@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
-import com.benzaazaa.copilot.security.Caller;
+import com.msetransport.copilot.security.Caller;
 import java.time.LocalDate;
 import org.springframework.stereotype.Component;
 

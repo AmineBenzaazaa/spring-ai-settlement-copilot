@@ -1,11 +1,11 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.config.CopilotToolbox;
-import com.benzaazaa.copilot.guard.GroundingGuard;
-import com.benzaazaa.copilot.guard.GroundingGuard.Verification;
-import com.benzaazaa.copilot.security.Caller;
-import com.benzaazaa.copilot.tools.TurnContext;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotToolbox;
+import com.msetransport.copilot.guard.GroundingGuard;
+import com.msetransport.copilot.guard.GroundingGuard.Verification;
+import com.msetransport.copilot.security.Caller;
+import com.msetransport.copilot.tools.TurnContext;
 import java.time.Clock;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -107,8 +107,8 @@ public class CopilotService {
         String mode = null;
         String language = null;
         StringBuilder text = new StringBuilder();
-        List<com.benzaazaa.copilot.tools.ToolCallTrace> traces = new ArrayList<>();
-        List<com.benzaazaa.copilot.tools.SourceRef> sources = List.of();
+        List<com.msetransport.copilot.tools.ToolCallTrace> traces = new ArrayList<>();
+        List<com.msetransport.copilot.tools.SourceRef> sources = List.of();
         ChartSpec chart = null;
         Verification verification = null;
         String error = null;

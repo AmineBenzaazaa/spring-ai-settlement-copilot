@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

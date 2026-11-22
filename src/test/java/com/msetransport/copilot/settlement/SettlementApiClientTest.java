@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.settlement;
+package com.msetransport.copilot.settlement;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
@@ -9,8 +9,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.support.SettlementStubs;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.support.SettlementStubs;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import java.math.BigDecimal;

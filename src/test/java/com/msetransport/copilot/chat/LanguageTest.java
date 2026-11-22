@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

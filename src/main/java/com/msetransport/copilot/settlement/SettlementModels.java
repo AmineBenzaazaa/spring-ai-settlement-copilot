@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.settlement;
+package com.msetransport.copilot.settlement;
 
 import java.math.BigDecimal;
 import java.time.Instant;

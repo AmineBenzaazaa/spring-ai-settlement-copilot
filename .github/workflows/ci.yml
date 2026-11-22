@@ -57,7 +57,7 @@ jobs:
           path: spring-ai-settlement-copilot
       - uses: actions/checkout@v4
         with:
-          repository: AmineBenzaazaa/spring-cod-settlement
+          repository: ${{ github.repository_owner }}/spring-cod-settlement
           path: spring-cod-settlement
       - name: Start the stack
         working-directory: spring-ai-settlement-copilot

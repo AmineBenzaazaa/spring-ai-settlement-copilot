@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.security;
+package com.msetransport.copilot.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,7 +39,7 @@ public class ProblemDetailAuthHandler implements AuthenticationEntryPoint, Acces
 
     private void write(HttpServletResponse response, HttpStatus status, String type, String detail) throws IOException {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(status, detail);
-        problem.setType(URI.create("https://settlement-copilot.local/problems/" + type));
+        problem.setType(URI.create("https://copilot.msetransport.com/problems/" + type));
         if (status == HttpStatus.UNAUTHORIZED) {
             response.setHeader("WWW-Authenticate", "Bearer");
         }

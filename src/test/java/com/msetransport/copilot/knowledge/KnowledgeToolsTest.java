@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -6,10 +6,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
-import com.benzaazaa.copilot.security.Caller;
-import com.benzaazaa.copilot.tools.ToolOutputs.DocSnippet;
-import com.benzaazaa.copilot.tools.ToolOutputs.DocSnippets;
-import com.benzaazaa.copilot.tools.TurnContext;
+import com.msetransport.copilot.security.Caller;
+import com.msetransport.copilot.tools.ToolOutputs.DocSnippet;
+import com.msetransport.copilot.tools.ToolOutputs.DocSnippets;
+import com.msetransport.copilot.tools.TurnContext;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;

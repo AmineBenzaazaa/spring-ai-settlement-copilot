@@ -1,9 +1,9 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
-import com.benzaazaa.copilot.knowledge.HashingEmbeddingModel;
-import com.benzaazaa.copilot.knowledge.KnowledgeTools;
-import com.benzaazaa.copilot.tools.SettlementTools;
-import com.benzaazaa.copilot.tools.TracingToolCallback;
+import com.msetransport.copilot.knowledge.HashingEmbeddingModel;
+import com.msetransport.copilot.knowledge.KnowledgeTools;
+import com.msetransport.copilot.tools.SettlementTools;
+import com.msetransport.copilot.tools.TracingToolCallback;
 import java.time.Clock;
 import java.util.Arrays;
 import org.springframework.ai.chat.memory.ChatMemory;

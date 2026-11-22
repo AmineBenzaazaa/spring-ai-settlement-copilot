@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
 import java.util.List;
 import org.springframework.ai.tool.ToolCallback;

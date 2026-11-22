@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.it;
+package com.msetransport.copilot.it;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
@@ -8,9 +8,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.support.AbstractIntegrationTest;
-import com.benzaazaa.copilot.support.TestTokens;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.support.AbstractIntegrationTest;
+import com.msetransport.copilot.support.TestTokens;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.verification.LoggedRequest;

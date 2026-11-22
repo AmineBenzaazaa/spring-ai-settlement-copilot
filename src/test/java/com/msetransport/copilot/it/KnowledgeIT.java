@@ -1,12 +1,12 @@
-package com.benzaazaa.copilot.it;
+package com.msetransport.copilot.it;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.knowledge.KnowledgeIngestor;
-import com.benzaazaa.copilot.knowledge.KnowledgeToolsAccess;
-import com.benzaazaa.copilot.support.AbstractIntegrationTest;
-import com.benzaazaa.copilot.support.TestTokens;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.knowledge.KnowledgeIngestor;
+import com.msetransport.copilot.knowledge.KnowledgeToolsAccess;
+import com.msetransport.copilot.support.AbstractIntegrationTest;
+import com.msetransport.copilot.support.TestTokens;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.document.Document;

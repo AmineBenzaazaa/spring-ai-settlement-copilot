@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 import java.text.Normalizer;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.support;
+package com.msetransport.copilot.support;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.absent;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 public final class SettlementStubs {
 
     private static final String EMPTY_PAGE = "{\"content\":[],\"page\":0,\"size\":100,\"totalElements\":0,\"totalPages\":0}";
-    private static final String NOT_FOUND = "{\"type\":\"https://cod-settlement.benzaazaa.com/problems/not-found\","
+    private static final String NOT_FOUND = "{\"type\":\"https://settle.msetransport.com/problems/not-found\","
             + "\"title\":\"Resource not found\",\"status\":404}";
 
     private SettlementStubs() {

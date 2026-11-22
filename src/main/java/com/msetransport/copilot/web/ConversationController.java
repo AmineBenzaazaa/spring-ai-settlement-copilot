@@ -1,7 +1,7 @@
-package com.benzaazaa.copilot.web;
+package com.msetransport.copilot.web;
 
-import com.benzaazaa.copilot.chat.CopilotService;
-import com.benzaazaa.copilot.security.Caller;
+import com.msetransport.copilot.chat.CopilotService;
+import com.msetransport.copilot.security.Caller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Pattern;
 import java.util.List;

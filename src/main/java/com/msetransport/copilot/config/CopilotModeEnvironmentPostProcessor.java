@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
 import java.util.HashMap;
 import java.util.Locale;

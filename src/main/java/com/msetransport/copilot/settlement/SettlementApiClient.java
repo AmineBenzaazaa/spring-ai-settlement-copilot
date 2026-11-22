@@ -1,13 +1,13 @@
-package com.benzaazaa.copilot.settlement;
+package com.msetransport.copilot.settlement;
 
-import com.benzaazaa.copilot.settlement.SettlementModels.Courier;
-import com.benzaazaa.copilot.settlement.SettlementModels.CourierBalance;
-import com.benzaazaa.copilot.settlement.SettlementModels.Dispute;
-import com.benzaazaa.copilot.settlement.SettlementModels.Order;
-import com.benzaazaa.copilot.settlement.SettlementModels.Overview;
-import com.benzaazaa.copilot.settlement.SettlementModels.Page;
-import com.benzaazaa.copilot.settlement.SettlementModels.ReconciliationReport;
-import com.benzaazaa.copilot.settlement.SettlementModels.Statement;
+import com.msetransport.copilot.settlement.SettlementModels.Courier;
+import com.msetransport.copilot.settlement.SettlementModels.CourierBalance;
+import com.msetransport.copilot.settlement.SettlementModels.Dispute;
+import com.msetransport.copilot.settlement.SettlementModels.Order;
+import com.msetransport.copilot.settlement.SettlementModels.Overview;
+import com.msetransport.copilot.settlement.SettlementModels.Page;
+import com.msetransport.copilot.settlement.SettlementModels.ReconciliationReport;
+import com.msetransport.copilot.settlement.SettlementModels.Statement;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import java.math.BigDecimal;

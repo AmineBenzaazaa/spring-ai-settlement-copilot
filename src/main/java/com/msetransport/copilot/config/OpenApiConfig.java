@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

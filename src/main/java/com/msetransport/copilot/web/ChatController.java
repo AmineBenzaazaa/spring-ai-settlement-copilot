@@ -1,10 +1,10 @@
-package com.benzaazaa.copilot.web;
+package com.msetransport.copilot.web;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.chat.ChatRequest;
-import com.benzaazaa.copilot.chat.CopilotEvent;
-import com.benzaazaa.copilot.chat.CopilotService;
-import com.benzaazaa.copilot.security.Caller;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.chat.ChatRequest;
+import com.msetransport.copilot.chat.CopilotEvent;
+import com.msetransport.copilot.chat.CopilotService;
+import com.msetransport.copilot.security.Caller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

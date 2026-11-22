@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,23 +1,23 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.benzaazaa.copilot.config.AiConfigTestAccess;
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.config.CopilotToolbox;
-import com.benzaazaa.copilot.demo.AnswerRenderer;
-import com.benzaazaa.copilot.demo.DemoPlanner;
-import com.benzaazaa.copilot.demo.ScriptedChatModel;
-import com.benzaazaa.copilot.guard.GroundingGuard;
-import com.benzaazaa.copilot.guard.InjectionGuard;
-import com.benzaazaa.copilot.knowledge.KnowledgeTools;
-import com.benzaazaa.copilot.security.Caller;
-import com.benzaazaa.copilot.settlement.DeskLinks;
-import com.benzaazaa.copilot.settlement.SettlementApiClient;
-import com.benzaazaa.copilot.settlement.SettlementModels;
-import com.benzaazaa.copilot.tools.SettlementTools;
+import com.msetransport.copilot.config.AiConfigTestAccess;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotToolbox;
+import com.msetransport.copilot.demo.AnswerRenderer;
+import com.msetransport.copilot.demo.DemoPlanner;
+import com.msetransport.copilot.demo.ScriptedChatModel;
+import com.msetransport.copilot.guard.GroundingGuard;
+import com.msetransport.copilot.guard.InjectionGuard;
+import com.msetransport.copilot.knowledge.KnowledgeTools;
+import com.msetransport.copilot.security.Caller;
+import com.msetransport.copilot.settlement.DeskLinks;
+import com.msetransport.copilot.settlement.SettlementApiClient;
+import com.msetransport.copilot.settlement.SettlementModels;
+import com.msetransport.copilot.tools.SettlementTools;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
 import java.time.Clock;

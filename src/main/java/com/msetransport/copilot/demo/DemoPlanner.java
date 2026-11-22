@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
-import com.benzaazaa.copilot.knowledge.TextNormalizer;
+import com.msetransport.copilot.knowledge.TextNormalizer;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.regex.Matcher;

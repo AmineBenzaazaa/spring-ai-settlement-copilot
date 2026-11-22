@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.tools;
+package com.msetransport.copilot.tools;
 
 /**
  * One line of the tool-call trace panel: {@code getCourierBalances() -> 2 rows in 41 ms}.

@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.settlement;
+package com.msetransport.copilot.settlement;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotProperties;
 import java.net.http.HttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

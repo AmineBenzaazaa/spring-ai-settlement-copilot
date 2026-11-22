@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

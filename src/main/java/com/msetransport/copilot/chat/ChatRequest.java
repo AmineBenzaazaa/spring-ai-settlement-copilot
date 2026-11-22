@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

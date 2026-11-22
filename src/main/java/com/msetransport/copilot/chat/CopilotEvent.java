@@ -1,8 +1,8 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
-import com.benzaazaa.copilot.guard.GroundingGuard.Verification;
-import com.benzaazaa.copilot.tools.SourceRef;
-import com.benzaazaa.copilot.tools.ToolCallTrace;
+import com.msetransport.copilot.guard.GroundingGuard.Verification;
+import com.msetransport.copilot.tools.SourceRef;
+import com.msetransport.copilot.tools.ToolCallTrace;
 import java.util.List;
 
 /**

@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.security;
+package com.msetransport.copilot.security;
 
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;

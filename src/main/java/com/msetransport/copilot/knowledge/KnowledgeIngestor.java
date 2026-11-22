@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;

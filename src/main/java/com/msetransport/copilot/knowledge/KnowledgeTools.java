@@ -1,9 +1,9 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
-import com.benzaazaa.copilot.tools.SourceRef;
-import com.benzaazaa.copilot.tools.ToolOutputs.DocSnippet;
-import com.benzaazaa.copilot.tools.ToolOutputs.DocSnippets;
-import com.benzaazaa.copilot.tools.TurnContext;
+import com.msetransport.copilot.tools.SourceRef;
+import com.msetransport.copilot.tools.ToolOutputs.DocSnippet;
+import com.msetransport.copilot.tools.ToolOutputs.DocSnippets;
+import com.msetransport.copilot.tools.TurnContext;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;

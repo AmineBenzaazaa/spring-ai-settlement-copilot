@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

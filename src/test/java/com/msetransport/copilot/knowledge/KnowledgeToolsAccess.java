@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.knowledge;
+package com.msetransport.copilot.knowledge;
 
 /** Exposes the retrieval constants to integration tests in other packages. */
 public final class KnowledgeToolsAccess {

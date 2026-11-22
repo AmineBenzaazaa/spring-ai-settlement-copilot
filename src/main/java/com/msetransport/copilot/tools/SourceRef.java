@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.tools;
+package com.msetransport.copilot.tools;
 
 /**
  * A row (or document) an answer was built from, shown as a clickable chip in the UI.

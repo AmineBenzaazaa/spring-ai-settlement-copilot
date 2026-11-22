@@ -1,10 +1,10 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * A chart description the UI renders with Chart.js. Built by the server from tool data (never
+ * A chart description the UI renders with Chart.js. Produced by the server from tool data (never
  * by the model), so the chart can never disagree with the numbers in the answer.
  *
  * @param type bar or doughnut

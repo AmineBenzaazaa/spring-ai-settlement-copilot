@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
-import com.benzaazaa.copilot.knowledge.TextNormalizer;
+import com.msetransport.copilot.knowledge.TextNormalizer;
 import java.util.Set;
 
 /** English or French. Auto-detection is a word vote: cheap, deterministic and good on short questions. */

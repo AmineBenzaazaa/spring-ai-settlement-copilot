@@ -1,7 +1,7 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
-import com.benzaazaa.copilot.chat.Language;
-import com.benzaazaa.copilot.demo.AnswerRenderer.NamedResult;
+import com.msetransport.copilot.chat.Language;
+import com.msetransport.copilot.demo.AnswerRenderer.NamedResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -156,9 +156,9 @@ public class ScriptedChatModel implements ChatModel {
 
     /** Finds a courier whose name, first word or code appears in the question. */
     static Long matchCourier(String question, JsonNode matches) {
-        String q = com.benzaazaa.copilot.knowledge.TextNormalizer.fold(question == null ? "" : question);
+        String q = com.msetransport.copilot.knowledge.TextNormalizer.fold(question == null ? "" : question);
         for (JsonNode c : matches.path("couriers")) {
-            String name = com.benzaazaa.copilot.knowledge.TextNormalizer.fold(c.path("name").asText());
+            String name = com.msetransport.copilot.knowledge.TextNormalizer.fold(c.path("name").asText());
             String firstWord = name.split("\\s+")[0];
             String code = c.path("code").asText().toLowerCase();
             if ((!name.isBlank() && q.contains(name)) || (firstWord.length() >= 3 && q.matches("(?s).*\\b" + Pattern.quote(firstWord) + "\\b.*"))

@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
-import com.benzaazaa.copilot.chat.Language;
+import com.msetransport.copilot.chat.Language;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.ArrayList;
 import java.util.Iterator;

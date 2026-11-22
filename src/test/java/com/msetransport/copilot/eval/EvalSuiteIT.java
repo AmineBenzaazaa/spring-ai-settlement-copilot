@@ -1,11 +1,11 @@
-package com.benzaazaa.copilot.eval;
+package com.msetransport.copilot.eval;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.support.AbstractIntegrationTest;
-import com.benzaazaa.copilot.support.TestTokens;
-import com.benzaazaa.copilot.tools.ToolCallTrace;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.support.AbstractIntegrationTest;
+import com.msetransport.copilot.support.TestTokens;
+import com.msetransport.copilot.tools.ToolCallTrace;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

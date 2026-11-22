@@ -1,8 +1,8 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.tools.ToolOutputs;
+import com.msetransport.copilot.tools.ToolOutputs;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;

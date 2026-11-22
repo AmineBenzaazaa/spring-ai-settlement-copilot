@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.tools;
+package com.msetransport.copilot.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -9,14 +9,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.guard.InjectionGuard;
-import com.benzaazaa.copilot.security.Caller;
-import com.benzaazaa.copilot.settlement.DeskLinks;
-import com.benzaazaa.copilot.settlement.SettlementApiClient;
-import com.benzaazaa.copilot.settlement.SettlementApiException;
-import com.benzaazaa.copilot.settlement.SettlementModels;
-import com.benzaazaa.copilot.tools.ToolOutputs.ToolError;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.guard.InjectionGuard;
+import com.msetransport.copilot.security.Caller;
+import com.msetransport.copilot.settlement.DeskLinks;
+import com.msetransport.copilot.settlement.SettlementApiClient;
+import com.msetransport.copilot.settlement.SettlementApiException;
+import com.msetransport.copilot.settlement.SettlementModels;
+import com.msetransport.copilot.tools.ToolOutputs.ToolError;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import java.math.BigDecimal;

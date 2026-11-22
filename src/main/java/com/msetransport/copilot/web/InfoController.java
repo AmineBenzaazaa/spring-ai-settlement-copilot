@@ -1,7 +1,7 @@
-package com.benzaazaa.copilot.web;
+package com.msetransport.copilot.web;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.config.CopilotToolbox;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotToolbox;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;

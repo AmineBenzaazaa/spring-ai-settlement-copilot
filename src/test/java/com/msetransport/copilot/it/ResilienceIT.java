@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.it;
+package com.msetransport.copilot.it;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
@@ -8,10 +8,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.support.AbstractIntegrationTest;
-import com.benzaazaa.copilot.support.SettlementStubs;
-import com.benzaazaa.copilot.support.TestTokens;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.support.AbstractIntegrationTest;
+import com.msetransport.copilot.support.SettlementStubs;
+import com.msetransport.copilot.support.TestTokens;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;

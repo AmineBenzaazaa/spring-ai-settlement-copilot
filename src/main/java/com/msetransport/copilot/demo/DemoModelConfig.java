@@ -1,6 +1,6 @@
-package com.benzaazaa.copilot.demo;
+package com.msetransport.copilot.demo;
 
-import com.benzaazaa.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

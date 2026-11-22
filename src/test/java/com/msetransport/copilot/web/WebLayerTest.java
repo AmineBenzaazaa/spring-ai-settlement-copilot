@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.web;
+package com.msetransport.copilot.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -15,17 +15,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.chat.ChatRequest;
-import com.benzaazaa.copilot.chat.CopilotEvent;
-import com.benzaazaa.copilot.chat.CopilotService;
-import com.benzaazaa.copilot.config.CopilotProperties;
-import com.benzaazaa.copilot.config.CopilotToolbox;
-import com.benzaazaa.copilot.guard.GroundingGuard;
-import com.benzaazaa.copilot.security.Caller;
-import com.benzaazaa.copilot.security.ProblemDetailAuthHandler;
-import com.benzaazaa.copilot.security.SecurityConfig;
-import com.benzaazaa.copilot.support.TestTokens;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.chat.ChatRequest;
+import com.msetransport.copilot.chat.CopilotEvent;
+import com.msetransport.copilot.chat.CopilotService;
+import com.msetransport.copilot.config.CopilotProperties;
+import com.msetransport.copilot.config.CopilotToolbox;
+import com.msetransport.copilot.guard.GroundingGuard;
+import com.msetransport.copilot.security.Caller;
+import com.msetransport.copilot.security.ProblemDetailAuthHandler;
+import com.msetransport.copilot.security.SecurityConfig;
+import com.msetransport.copilot.support.TestTokens;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
@@ -126,7 +126,7 @@ class WebLayerTest {
             mvc.perform(post("/api/copilot/chat").header("Authorization", "Bearer " + TestTokens.atlas())
                             .contentType(MediaType.APPLICATION_JSON).content(body))
                     .andExpect(status().isBadRequest())
-                    .andExpect(jsonPath("$.type").value("https://settlement-copilot.local/problems/invalid-request"));
+                    .andExpect(jsonPath("$.type").value("https://copilot.msetransport.com/problems/invalid-request"));
         }
     }
 

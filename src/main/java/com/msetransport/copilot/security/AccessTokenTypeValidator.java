@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.security;
+package com.msetransport.copilot.security;
 
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;

@@ -1,13 +1,13 @@
-package com.benzaazaa.copilot.it;
+package com.msetransport.copilot.it;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.chat.ChatAnswer;
-import com.benzaazaa.copilot.support.AbstractIntegrationTest;
-import com.benzaazaa.copilot.support.TestTokens;
+import com.msetransport.copilot.chat.ChatAnswer;
+import com.msetransport.copilot.support.AbstractIntegrationTest;
+import com.msetransport.copilot.support.TestTokens;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;

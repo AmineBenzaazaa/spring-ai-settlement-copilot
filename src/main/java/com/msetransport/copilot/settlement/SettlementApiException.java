@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.settlement;
+package com.msetransport.copilot.settlement;
 
 /** Base type for failures talking to the settlement platform. Messages never contain tokens. */
 public abstract sealed class SettlementApiException extends RuntimeException

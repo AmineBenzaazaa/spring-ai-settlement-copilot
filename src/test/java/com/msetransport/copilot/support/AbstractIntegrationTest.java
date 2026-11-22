@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.support;
+package com.msetransport.copilot.support;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;

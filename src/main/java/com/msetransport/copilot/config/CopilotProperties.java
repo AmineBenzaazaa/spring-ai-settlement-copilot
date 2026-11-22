@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.config;
+package com.msetransport.copilot.config;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;

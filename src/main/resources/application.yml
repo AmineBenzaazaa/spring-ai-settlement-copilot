@@ -70,7 +70,7 @@ resilience4j:
         enable-exponential-backoff: true
         exponential-backoff-multiplier: 2
         retry-exceptions:
-          - com.benzaazaa.copilot.settlement.SettlementApiException$Unavailable
+          - com.msetransport.copilot.settlement.SettlementApiException$Unavailable
   circuitbreaker:
     instances:
       settlement:
@@ -80,9 +80,9 @@ resilience4j:
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 2
         ignore-exceptions:
-          - com.benzaazaa.copilot.settlement.SettlementApiException$NotFound
-          - com.benzaazaa.copilot.settlement.SettlementApiException$AccessDenied
-          - com.benzaazaa.copilot.settlement.SettlementApiException$BadRequest
+          - com.msetransport.copilot.settlement.SettlementApiException$NotFound
+          - com.msetransport.copilot.settlement.SettlementApiException$AccessDenied
+          - com.msetransport.copilot.settlement.SettlementApiException$BadRequest
 
 management:
   endpoints:

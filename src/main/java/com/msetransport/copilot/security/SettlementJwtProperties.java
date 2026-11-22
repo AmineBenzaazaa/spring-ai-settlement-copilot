@@ -1,4 +1,4 @@
-package com.benzaazaa.copilot.security;
+package com.msetransport.copilot.security;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -1,8 +1,8 @@
-package com.benzaazaa.copilot.chat;
+package com.msetransport.copilot.chat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.benzaazaa.copilot.security.Caller;
+import com.msetransport.copilot.security.Caller;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
