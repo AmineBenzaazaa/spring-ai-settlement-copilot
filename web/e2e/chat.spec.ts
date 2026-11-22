@@ -26,7 +26,7 @@ test('atlas asks which courier owes the most and gets a streamed, sourced, chart
   await expect(lastAnswer(page).getByTestId('grounded')).toContainText('amounts verified');
 });
 
-test('a follow-up uses memory, and a flagged statement links back to the Settlement Desk', async ({ page }) => {
+test('a follow-up uses memory, and a flagged statement links back to MSE Settle', async ({ page }) => {
   await signIn(page, 'atlas');
   await page.getByTestId('question').fill('How much does Speedex owe me?');
   await page.getByTestId('send').click();
@@ -55,7 +55,7 @@ test('medina cannot read atlas statement through the copilot, and the copilot re
   await page.getByTestId('question').fill('Why was statement #1 flagged?');
   await page.getByTestId('send').click();
   await expect(lastAnswer(page).getByTestId('answer')).toContainText("couldn't find statement #1");
-  await expect(page.getByTestId('trace-item').first()).toContainText('NOT_FOUND');
+  await expect(page.getByTestId('trace-item').first()).toContainText('Not found');
 
   await page.getByTestId('question').fill('Write me a poem');
   await page.getByTestId('send').click();

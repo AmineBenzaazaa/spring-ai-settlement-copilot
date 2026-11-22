@@ -10,7 +10,7 @@ async function askAndWait(page: Page, question: string) {
   await page.getByTestId('question').fill(question);
   await page.getByTestId('send').click();
   const answer = page.getByTestId('assistant-message').nth(before);
-  await expect(answer.getByTestId('grounded')).toBeVisible();
+  await expect(answer.getByTestId('grounded')).toBeVisible({ timeout: 45_000 });
   await page.waitForTimeout(900); // let the chart animation finish
 }
 
@@ -35,6 +35,7 @@ test('capture screenshots', async ({ page }) => {
   await page.screenshot({ path: out('chat-statement-flagged') });
 
   await page.getByRole('button', { name: 'New chat' }).click();
+  await expect(page.getByTestId('suggestion').first()).toBeVisible();
   await askAndWait(page, 'Which courier owes me the most?');
   await page.getByTestId('theme-toggle').click();
   await page.waitForTimeout(900);
@@ -42,6 +43,7 @@ test('capture screenshots', async ({ page }) => {
   await page.getByTestId('theme-toggle').click();
 
   await page.getByRole('button', { name: 'New chat' }).click();
+  await expect(page.getByTestId('suggestion').first()).toBeVisible();
   await page.getByTestId('lang-fr').click();
   await askAndWait(page, 'Quel livreur me doit le plus ?');
   await page.screenshot({ path: out('chat-courier-ranking-fr') });
