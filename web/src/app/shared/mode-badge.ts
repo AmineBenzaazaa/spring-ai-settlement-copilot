@@ -2,25 +2,22 @@ import { Component, computed, inject, input } from '@angular/core';
 import { CopilotInfo } from '../core/models';
 import { I18nService } from '../core/i18n.service';
 
-/** Always visible: which model answers. Amber for the offline demo model, violet for Claude. */
+/** Always visible: which model answers. Amber for the offline demo model, brand colour for Claude. */
 @Component({
   selector: 'app-mode-badge',
   template: `
     @if (info(); as i) {
       <span
-        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ring-1"
-        [class]="demo() ? 'bg-amber-50 text-amber-800 ring-amber-300' : 'bg-violet-50 text-violet-800 ring-violet-300'"
+        class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11.5px] font-medium"
+        [class]="demo() ? 'border-amber-300/70 bg-amber-50 text-amber-800 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-200' : 'border-accent/30 bg-accent/10 text-accent'"
         [attr.title]="demo() ? i18n.t('demoModeHint') : i.description"
         data-testid="mode-badge"
       >
-        <span class="relative flex size-2">
-          <span class="absolute inline-flex size-full animate-ping rounded-full opacity-60" [class]="demo() ? 'bg-amber-400' : 'bg-violet-400'"></span>
-          <span class="relative inline-flex size-2 rounded-full" [class]="demo() ? 'bg-amber-500' : 'bg-violet-500'"></span>
-        </span>
+        <span class="size-1.5 rounded-full" [class]="demo() ? 'bg-amber-500' : 'bg-accent'"></span>
         @if (demo()) {
-          {{ i18n.t('demoMode') }} · {{ i18n.t('noKey') }}
+          {{ i18n.t('demoMode') }} <span class="opacity-70">· {{ i18n.t('noKey') }}</span>
         } @else {
-          {{ i18n.t('claudeMode') }} · {{ i.model }}
+          {{ i18n.t('claudeMode') }} <span class="opacity-70">· {{ i.model }}</span>
         }
       </span>
     }

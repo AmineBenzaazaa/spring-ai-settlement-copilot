@@ -19,7 +19,7 @@ describe('MessageBubble', () => {
 
   it('shows a working indicator with the current tool before the first token', async () => {
     const el = await render({ ...base, streaming: true, traces: [{ index: 1, tool: 'findCourier', arguments: '{}', status: 'OK', rows: 2, durationMs: 4, flagged: 0 }] });
-    expect(el.textContent).toContain('findCourier()');
+    expect(el.textContent).toContain('Find a courier');
   });
 
   it('renders markdown, sources and the grounding badge when done', async () => {

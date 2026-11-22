@@ -26,7 +26,8 @@ describe('TracePanel', () => {
     expect(items).toHaveLength(3);
     expect(items[0].textContent).toContain('findCourier()');
     expect(items[1].textContent).toContain('statementId: 12');
-    expect(items[1].textContent).toContain('NOT_FOUND');
+    expect(items[1].textContent).toContain('Not found');
+    expect(items[1].textContent).toContain('Statement reconciliation');
     expect(items[2].textContent).toContain('not-json');
     expect(items[2].textContent).toContain('1 suspicious text neutralized');
     expect(fixture.nativeElement.textContent).toContain('live');

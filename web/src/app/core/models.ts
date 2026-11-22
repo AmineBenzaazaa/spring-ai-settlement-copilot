@@ -1,4 +1,4 @@
-/** Shapes of the copilot API (mirrors the Java records in com.benzaazaa.copilot.chat / tools). */
+/** Shapes of the copilot API (mirrors the Java records in com.msetransport.copilot.chat / tools). */
 
 export type Lang = 'en' | 'fr';
 

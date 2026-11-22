@@ -14,15 +14,32 @@ async function askAndWait(page: Page, question: string) {
   await page.waitForTimeout(900); // let the chart animation finish
 }
 
+test.use({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+
 test('capture screenshots', async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('settlement-copilot.lang', 'en'));
+  await page.addInitScript(() => {
+    if (!sessionStorage.getItem('shots')) {
+      localStorage.setItem('settlement-copilot.lang', 'en');
+      localStorage.setItem('mse-copilot.theme', 'light');
+      sessionStorage.setItem('shots', '1');
+    }
+  });
   await page.goto('/login');
   await expect(page.getByTestId('mode-badge')).toBeVisible();
   await page.screenshot({ path: out('login') });
 
   await page.getByTestId('sign-in').click();
+  await expect(page.getByTestId('suggestion').first()).toBeVisible();
+  await page.screenshot({ path: out('welcome') });
   await askAndWait(page, 'Why was statement #1 flagged?');
   await page.screenshot({ path: out('chat-statement-flagged') });
+
+  await page.getByRole('button', { name: 'New chat' }).click();
+  await askAndWait(page, 'Which courier owes me the most?');
+  await page.getByTestId('theme-toggle').click();
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: out('chat-courier-ranking-dark') });
+  await page.getByTestId('theme-toggle').click();
 
   await page.getByRole('button', { name: 'New chat' }).click();
   await page.getByTestId('lang-fr').click();
