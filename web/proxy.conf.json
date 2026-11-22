@@ -1,0 +1,4 @@
+{
+  "/api/copilot": { "target": "http://localhost:18090", "secure": false },
+  "/api": { "target": "http://localhost:18081", "secure": false }
+}
