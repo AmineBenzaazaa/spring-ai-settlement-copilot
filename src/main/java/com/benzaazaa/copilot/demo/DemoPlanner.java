@@ -54,7 +54,7 @@ public class DemoPlanner {
         }
         if (matches(q, "\\bmean|meaning|signifie|veut dire|definition|defini|\\bcomputed|calculated|calcule"
                 + "|how does .{0,40}work|how do .{0,40}work|comment fonctionne|c'?est quoi|qu'?est[- ]ce qu"
-                + "|what is an? |difference between|\\brule|regle|formula|formule")) {
+                + "|what is an? |difference between|\\bthe rules?\\b|\\brules? (for|of|about)|regles? de|formula|formule")) {
             return new Plan(Intent.DOCS, null, null, null, null, null, original, original);
         }
         if (disputeWord) {
