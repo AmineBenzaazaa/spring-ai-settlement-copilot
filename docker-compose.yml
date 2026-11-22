@@ -1,0 +1,130 @@
+# Settlement Copilot, full stack, demo data included. One command:
+#   docker compose up --build -d
+#   open http://localhost:3300          # Copilot web (Angular)   login: atlas / demo-pass-123
+#   open http://localhost:3201          # Settlement Desk (project 1's React UI), where source links point
+#   curl localhost:18090/api/copilot/info
+#
+# Without ANTHROPIC_API_KEY the copilot runs the deterministic offline demo model; put your key in
+# .env (see .env.example) and it answers with Claude instead. Nothing else changes.
+#
+# The settlement platform is built from ../spring-cod-settlement (project 1, unchanged). Its ports
+# here (18081, 3201) differ from its own compose defaults (18080, 3200) so both stacks can coexist.
+name: settlement-copilot
+
+x-jwt: &jwt-secret ${APP_JWT_SECRET:-local-docker-only-secret-change-me-0123456789}
+
+services:
+  # ---------------- settlement platform (project 1) ----------------
+  settlement-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cod_settlement
+      POSTGRES_USER: cod
+      POSTGRES_PASSWORD: cod
+    volumes:
+      - settlement-data:/var/lib/postgresql/data
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cod -d cod_settlement"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  settlement-api:
+    build: ../spring-cod-settlement
+    environment:
+      SPRING_PROFILES_ACTIVE: demo
+      DB_URL: jdbc:postgresql://settlement-db:5432/cod_settlement
+      DB_USERNAME: cod
+      DB_PASSWORD: cod
+      DB_POOL_SIZE: 5
+      APP_JWT_SECRET: *jwt-secret
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=50 -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "${SETTLEMENT_API_PORT:-18081}:8080"
+    networks:
+      default:
+        # project 1's web nginx proxies to "app"
+        aliases: [app]
+    mem_limit: 512m
+    depends_on:
+      settlement-db:
+        condition: service_healthy
+
+  # one-shot: uploads the sample remittance CSV and opens two disputes (idempotent)
+  settlement-seed:
+    image: curlimages/curl:8.11.1
+    entrypoint: ["sh", "/seed/scripts/seed-demo.sh"]
+    environment:
+      SETTLEMENT_API: http://settlement-api:8080
+      SAMPLE_CSV: /seed/fixtures/sample_remittance.csv
+    volumes:
+      - ./scripts:/seed/scripts:ro
+      - ./fixtures:/seed/fixtures:ro
+    mem_limit: 32m
+    restart: "no"
+    depends_on:
+      settlement-api:
+        condition: service_healthy
+
+  settlement-web:
+    build: ../spring-cod-settlement/web
+    ports:
+      - "${SETTLEMENT_WEB_PORT:-3201}:80"
+    mem_limit: 64m
+    depends_on:
+      settlement-api:
+        condition: service_healthy
+
+  # ---------------- copilot ----------------
+  vector-db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: copilot
+      POSTGRES_USER: copilot
+      POSTGRES_PASSWORD: copilot
+    ports:
+      - "${VECTOR_DB_PORT:-15434}:5432"
+    volumes:
+      - copilot-data:/var/lib/postgresql/data
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U copilot -d copilot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  copilot:
+    build: .
+    environment:
+      DB_URL: jdbc:postgresql://vector-db:5432/copilot
+      DB_USERNAME: copilot
+      DB_PASSWORD: copilot
+      SETTLEMENT_API_URL: http://settlement-api:8080
+      DESK_BASE_URL: http://localhost:${SETTLEMENT_WEB_PORT:-3201}
+      APP_JWT_SECRET: *jwt-secret
+      COPILOT_MODE: ${COPILOT_MODE:-auto}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-opus-5-5}
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=50 -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "${COPILOT_API_PORT:-18090}:8080"
+    mem_limit: 512m
+    depends_on:
+      vector-db:
+        condition: service_healthy
+      settlement-api:
+        condition: service_healthy
+
+  web:
+    build: ./web
+    ports:
+      - "${COPILOT_WEB_PORT:-3300}:80"
+    mem_limit: 64m
+    depends_on:
+      copilot:
+        condition: service_healthy
+
+volumes:
+  settlement-data:
+  copilot-data:
