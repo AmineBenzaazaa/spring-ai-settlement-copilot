@@ -5,29 +5,27 @@ test.skip(!process.env['SCREENSHOTS'], 'set SCREENSHOTS=1 to capture docs/screen
 
 const out = (name: string) => `../docs/screenshots/${name}.png`;
 
-async function signIn(page: Page, lang: 'en' | 'fr') {
-  await page.addInitScript((l) => localStorage.setItem('settlement-copilot.lang', l), lang);
-  await page.goto('/login');
-  await expect(page.getByTestId('mode-badge')).toBeVisible();
+async function askAndWait(page: Page, question: string) {
+  const before = await page.getByTestId('assistant-message').count();
+  await page.getByTestId('question').fill(question);
+  await page.getByTestId('send').click();
+  const answer = page.getByTestId('assistant-message').nth(before);
+  await expect(answer.getByTestId('grounded')).toBeVisible();
+  await page.waitForTimeout(900); // let the chart animation finish
 }
 
 test('capture screenshots', async ({ page }) => {
-  await signIn(page, 'en');
+  await page.addInitScript(() => localStorage.setItem('settlement-copilot.lang', 'en'));
+  await page.goto('/login');
+  await expect(page.getByTestId('mode-badge')).toBeVisible();
   await page.screenshot({ path: out('login') });
 
   await page.getByTestId('sign-in').click();
-  await page.getByTestId('suggestion').filter({ hasText: 'Which courier owes me the most?' }).click();
-  await expect(page.getByTestId('grounded').last()).toBeVisible();
-  await page.getByTestId('question').fill('Why was statement #1 flagged?');
-  await page.getByTestId('send').click();
-  await expect(page.getByTestId('grounded').last()).toBeVisible();
-  await page.waitForTimeout(800); // chart animation
+  await askAndWait(page, 'Why was statement #1 flagged?');
   await page.screenshot({ path: out('chat-statement-flagged') });
 
   await page.getByRole('button', { name: 'New chat' }).click();
   await page.getByTestId('lang-fr').click();
-  await page.getByTestId('suggestion').filter({ hasText: 'Quel livreur me doit le plus ?' }).click();
-  await expect(page.getByTestId('grounded').last()).toBeVisible();
-  await page.waitForTimeout(800);
+  await askAndWait(page, 'Quel livreur me doit le plus ?');
   await page.screenshot({ path: out('chat-courier-ranking-fr') });
 });

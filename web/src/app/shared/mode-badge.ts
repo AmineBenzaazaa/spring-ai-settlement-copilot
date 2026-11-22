@@ -18,7 +18,7 @@ import { I18nService } from '../core/i18n.service';
           <span class="relative inline-flex size-2 rounded-full" [class]="demo() ? 'bg-amber-500' : 'bg-violet-500'"></span>
         </span>
         @if (demo()) {
-          {{ i18n.t('demoMode') }} · no API key
+          {{ i18n.t('demoMode') }} · {{ i18n.t('noKey') }}
         } @else {
           {{ i18n.t('claudeMode') }} · {{ i.model }}
         }

@@ -33,6 +33,9 @@ const DICTIONARY = {
     demoModeHint: 'Deterministic, no API key. Same tools, guards and streaming as Claude.',
     claudeMode: 'Claude',
     tools: 'tools',
+    noKey: 'no API key',
+    grounded: 'Grounded',
+    notGrounded: 'Not grounded',
   },
   fr: {
     tagline: 'Interrogez vos données de règlement. Chiffres exacts, sources, aucune supposition.',
@@ -65,6 +68,9 @@ const DICTIONARY = {
     demoModeHint: "Déterministe, sans clé d'API. Mêmes outils, garde-fous et streaming que Claude.",
     claudeMode: 'Claude',
     tools: 'outils',
+    noKey: "sans clé d'API",
+    grounded: 'Vérifié',
+    notGrounded: 'Non vérifié',
   },
 } as const;
 

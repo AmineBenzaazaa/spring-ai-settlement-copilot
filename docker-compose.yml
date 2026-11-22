@@ -115,6 +115,9 @@ services:
         condition: service_healthy
       settlement-api:
         condition: service_healthy
+      # the demo opens on a lived-in account: wait until the seed has run
+      settlement-seed:
+        condition: service_completed_successfully
 
   web:
     build: ./web

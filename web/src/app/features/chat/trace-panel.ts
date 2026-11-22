@@ -34,7 +34,7 @@ import { ChatMessage } from '../../core/models';
 
       @if (message()?.verification; as v) {
         <div class="mt-4 rounded-xl px-3 py-2 text-[12px]" [class]="v.grounded ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'">
-          <p class="font-semibold">{{ v.grounded ? '✓ Grounded' : '⚠ Not grounded' }}</p>
+          <p class="font-semibold">{{ v.grounded ? '✓ ' + i18n.t('grounded') : '⚠ ' + i18n.t('notGrounded') }}</p>
           <p>{{ v.checkedAmounts ? v.checkedAmounts + ' ' + i18n.t('verified') : i18n.t('noAmounts') }}</p>
         </div>
       }
