@@ -1,0 +1,3 @@
+# Offline demo: the scripted model, whatever key may be set. One command: docker compose up --build
+copilot:
+  mode: demo

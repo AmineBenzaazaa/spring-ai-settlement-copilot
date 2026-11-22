@@ -1,0 +1,108 @@
+spring:
+  application:
+    name: settlement-copilot
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:15434/copilot}
+    username: ${DB_USERNAME:copilot}
+    password: ${DB_PASSWORD:copilot}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  mvc:
+    async:
+      # an answer streams for a few seconds; leave room for slow real-model turns
+      request-timeout: 120s
+  ai:
+    anthropic:
+      # Read from the environment only; never commit a key. Empty = offline demo mode (copilot.mode=auto).
+      api-key: ${ANTHROPIC_API_KEY:}
+      chat:
+        options:
+          model: ${ANTHROPIC_MODEL:claude-opus-5-5}
+          max-tokens: ${ANTHROPIC_MAX_TOKENS:4096}
+    retry:
+      max-attempts: 3
+    vectorstore:
+      pgvector:
+        # Flyway owns the table (V1); Spring AI only reads and writes rows.
+        initialize-schema: false
+        table-name: vector_store
+        dimensions: 384
+        distance-type: COSINE_DISTANCE
+        index-type: HNSW
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: never
+
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+
+copilot:
+  # auto = Claude when ANTHROPIC_API_KEY is set, the offline scripted model otherwise
+  mode: ${COPILOT_MODE:auto}
+  model: ${ANTHROPIC_MODEL:claude-opus-5-5}
+  desk-base-url: ${DESK_BASE_URL:http://localhost:3201}
+  memory-max-messages: 20
+  max-tool-rounds: 5
+  max-question-length: 2000
+  settlement:
+    base-url: ${SETTLEMENT_API_URL:http://localhost:18080}
+    connect-timeout: 2s
+    read-timeout: 5s
+  demo:
+    token-delay: ${DEMO_TOKEN_DELAY:18ms}
+  jwt:
+    # Same HS256 secret and issuer as the settlement platform, so its access tokens work here.
+    secret: ${APP_JWT_SECRET:}
+    issuer: ${APP_JWT_ISSUER:cod-settlement}
+
+resilience4j:
+  retry:
+    instances:
+      settlement:
+        max-attempts: 3
+        wait-duration: 200ms
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+        retry-exceptions:
+          - com.benzaazaa.copilot.settlement.SettlementApiException$Unavailable
+  circuitbreaker:
+    instances:
+      settlement:
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
+        ignore-exceptions:
+          - com.benzaazaa.copilot.settlement.SettlementApiException$NotFound
+          - com.benzaazaa.copilot.settlement.SettlementApiException$AccessDenied
+          - com.benzaazaa.copilot.settlement.SettlementApiException$BadRequest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+  health:
+    circuitbreakers:
+      enabled: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  default-produces-media-type: application/json
+
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
