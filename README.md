@@ -29,6 +29,38 @@ JUnit 5 · Testcontainers · WireMock · Vitest · Playwright · Docker Compose 
 
 ---
 
+## What is MSE Transport?
+
+MSE Transport is software for **cash-on-delivery (COD) e-commerce in Morocco**: the customer pays the
+courier in cash at the door, and the courier pays the merchant back later. Three products cover the
+whole journey of a parcel and its cash:
+
+```mermaid
+flowchart LR
+    A["Order created<br/><b>MSE Dispatch</b>"] --> B["Courier delivers<br/>and collects cash"]
+    B --> C["Courier sends a<br/>remittance statement (CSV)"]
+    C --> D["Reconciled line by line<br/><b>MSE Settle</b>"]
+    D --> E["Mismatches become<br/>disputes"]
+    D --> F["Questions answered<br/><b>MSE Copilot</b>"]
+    E --> F
+```
+
+- **MSE Dispatch** runs the deliveries: orders, courier assignment, attempts, customer SMS.
+- **MSE Settle** checks the courier's cash: every remittance line against the merchant's orders.
+- **MSE Copilot** answers questions about it in plain English or French, with checked figures.
+
+### Take the 2-minute tour
+
+1. `docker compose up --build -d` (it also starts MSE Settle with sample data), then open http://localhost:3300.
+2. Click **Sign in** as the merchant **Atlas Home** (`atlas`, already filled in).
+3. Click the starter question **Which courier owes me the most?** and watch the right panel: each lookup, in plain words.
+4. Ask **Why was statement #1 flagged?** and click the statement link under the answer: it opens MSE Settle.
+5. Ask **Show open disputes over 400 MAD**, then switch to **FR** and ask *Quel livreur me doit le plus ?*.
+6. Sign out, sign in as **Medina Style** (`medina`) and ask about statement #1: it isn't hers, so the copilot says so.
+7. Account menu → **How it works** shows how Copilot fits with Dispatch and Settle.
+
+The same tour with screenshots: [`docs/TOUR.md`](docs/TOUR.md).
+
 ## The problem
 
 Merchants and finance teams using MSE Settle have their answers in the data (courier balances,
