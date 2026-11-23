@@ -64,7 +64,8 @@ class AnswerRendererTest {
                  "countIgnoringAmount":1,"largestIgnoringAmount":"50.00","disputes":[{"id":1,"statementId":1,
                  "trackingNumber":"SPX-100007","outcome":"AMOUNT_MISMATCH","claimedAmount":"50.00","status":"OPEN","reason":"short"}]}""");
         assertThat(renderer.render(plan(Intent.DISPUTES), Language.EN, List.of(some)))
-                .contains("**1 dispute**").contains("Dispute #1 · SPX-100007 (amount mismatch, statement #1): 50.00 MAD — OPEN — \"short\"");
+                .contains("**1 dispute**").contains("**Dispute #1** on SPX-100007 (amount mismatch, statement #1): 50.00 MAD claimed, open. Reason: \"short\"")
+                .doesNotContain("OPEN").doesNotContain(" — ");
         assertThat(renderer.render(plan(Intent.DISPUTES), Language.FR, List.of(some))).contains("« short »");
         NamedResult resolved = result("listDisputes", """
                 {"status":"RESOLVED","count":0,"countIgnoringAmount":0,"disputes":[]}""");
@@ -85,17 +86,17 @@ class AnswerRendererTest {
                  {"outcome":"OTHER","trackingNumber":"X"}]""";
         Plan plan = new Plan(Intent.STATEMENT_EXPLAIN, 1L, null, null, null, null, null, "q");
         String en = renderer.render(plan, Language.EN, List.of(result("getStatementReconciliation", base.formatted("RECONCILED", true, issues))));
-        assertThat(en).contains("**4 of its 14 lines**").contains("expected 867.50 MAD, collected 817.50 MAD (difference -50.00 MAD) — disputed")
+        assertThat(en).contains("**4 of its 14 lines**").contains("expected 867.50 MAD, collected 817.50 MAD (difference -50.00 MAD), already disputed")
                 .contains("reported 199.00 MAD for a parcel you don't have").contains("480.50 MAD expected but not reported")
                 .contains("difference -331.50 MAD.");
         String fr = renderer.render(plan, Language.FR, List.of(result("x", base.formatted("RECONCILED", true, issues))));
-        assertThat(fr).contains("**4 lignes sur 14**").contains("litige ouvert");
+        assertThat(fr).contains("**4 lignes sur 14**").contains("déjà en litige");
         assertThat(renderer.render(plan, Language.EN, List.of(result("x", base.formatted("RECONCILED", false, "[]")))))
                 .contains("is not flagged: all 14 lines matched");
         assertThat(renderer.render(plan, Language.FR, List.of(result("x", base.formatted("RECONCILED", false, "[]")))))
                 .contains("n'est pas signalé");
         assertThat(renderer.render(plan, Language.EN, List.of(result("x", base.formatted("PROCESSING", false, "[]")))))
-                .startsWith("Statement #1 is PROCESSING");
+                .startsWith("Statement #1 is processing");
     }
 
     @Test
@@ -110,7 +111,7 @@ class AnswerRendererTest {
         assertThat(renderer.render(plan(Intent.ORDERS), Language.EN, List.of(result("x", """
                 {"totalMatching":2,"shown":2,"shownTotalAmount":"970.50","orders":[{"trackingNumber":"RPD-1","customerName":"Y",
                  "city":"Casablanca","amountDue":"658.50","status":"DELIVERED"}]}""")))).contains("**2 matching orders**")
-                .contains("RPD-1 · Y · Casablanca · 658.50 MAD · DELIVERED");
+                .contains("RPD-1 · Y · Casablanca · 658.50 MAD · delivered");
         assertThat(renderer.render(plan(Intent.OVERVIEW), Language.FR, List.of(result("x", """
                 {"expectedCollections":"8903.00","balanceOwed":"4845.50","openDisputes":2,"discrepancies":3}"""))))
                 .contains("**Encore dû par les livreurs : 4845,50 MAD**").contains("Litiges ouverts : 2");

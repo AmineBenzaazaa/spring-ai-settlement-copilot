@@ -165,15 +165,35 @@ public class AnswerRenderer {
             if (shown++ == MAX_ITEMS) {
                 break;
             }
-            sb.append("- ").append(fr ? "Litige" : "Dispute").append(" #").append(x.path("id").asText())
-                    .append(" · ").append(x.path("trackingNumber").asText())
+            // one readable sentence per dispute: what, which parcel, how much, status, reason
+            sb.append("- ").append(fr ? "**Litige #" : "**Dispute #").append(x.path("id").asText()).append("**")
+                    .append(fr ? " sur " : " on ").append(x.path("trackingNumber").asText())
                     .append(" (").append(outcome(x.path("outcome").asText(), fr))
                     .append(fr ? ", relevé n°" : ", statement #").append(x.path("statementId").asText()).append(")").append(colon(fr))
-                    .append(mad(x.path("claimedAmount"), fr)).append(" — ").append(x.path("status").asText())
-                    .append(fr ? " — « " : " — \"")
-                    .append(x.path("reason").asText()).append(fr ? " »" : "\"").append('\n');
+                    .append(mad(x.path("claimedAmount"), fr)).append(fr ? " réclamés, " : " claimed, ")
+                    .append(statusWord(x.path("status").asText(), fr)).append(". ")
+                    .append(fr ? "Motif : « " : "Reason: \"").append(x.path("reason").asText()).append(fr ? " »" : "\"").append('\n');
         }
         return sb.toString().stripTrailing();
+    }
+
+    /** API enum to a lower-case word for running text: "OPEN" -> "open" / "ouvert". */
+    static String statusWord(String status, boolean fr) {
+        return switch (status) {
+            case "OPEN" -> fr ? "ouvert" : "open";
+            case "RESOLVED" -> fr ? "résolu" : "resolved";
+            case "REJECTED" -> fr ? "rejeté" : "rejected";
+            case "UPLOADED" -> fr ? "en file d'attente" : "queued";
+            case "PROCESSING" -> fr ? "en cours de traitement" : "processing";
+            case "RECONCILED" -> fr ? "rapproché" : "reconciled";
+            case "FAILED" -> fr ? "en échec" : "failed";
+            case "PENDING" -> fr ? "en attente" : "pending";
+            case "SHIPPED" -> fr ? "expédiée" : "shipped";
+            case "DELIVERED" -> fr ? "livrée" : "delivered";
+            case "RETURNED" -> fr ? "retournée" : "returned";
+            case "CANCELLED" -> fr ? "annulée" : "cancelled";
+            default -> status.toLowerCase(java.util.Locale.ROOT).replace('_', ' ');
+        };
     }
 
     private static String disputeWord(String status, boolean fr, boolean plural) {
@@ -193,9 +213,9 @@ public class AnswerRenderer {
     private static String statement(JsonNode s, boolean fr) {
         long id = s.path("statementId").asLong();
         if (!"RECONCILED".equals(s.path("status").asText())) {
-            return (fr ? "Le relevé n°%d est au statut %s : il n'a pas encore de résultat de rapprochement, je ne peux donc pas l'expliquer."
+            return (fr ? "Le relevé n°%d est %s : il n'a pas encore de résultat de rapprochement, je ne peux donc pas l'expliquer."
                     : "Statement #%d is %s: it has no reconciliation result yet, so I can't explain it.")
-                    .formatted(id, s.path("status").asText());
+                    .formatted(id, statusWord(s.path("status").asText(), fr));
         }
         long total = 0;
         for (Iterator<Map.Entry<String, JsonNode>> it = s.path("counts").fields(); it.hasNext(); ) {
@@ -233,7 +253,7 @@ public class AnswerRenderer {
             };
             sb.append("- ").append(line);
             if (x.path("hasDispute").asBoolean()) {
-                sb.append(fr ? " — litige ouvert" : " — disputed");
+                sb.append(fr ? ", déjà en litige" : ", already disputed");
             }
             sb.append('\n');
         }
@@ -255,7 +275,7 @@ public class AnswerRenderer {
             }
             sb.append("- #").append(x.path("id").asText()).append(fr ? " · livreur n°" : " · courier #")
                     .append(x.path("courierId").asText()).append(" · ").append(x.path("periodStart").asText())
-                    .append(" → ").append(x.path("periodEnd").asText()).append(" · ").append(x.path("status").asText())
+                    .append(" → ").append(x.path("periodEnd").asText()).append(" · ").append(statusWord(x.path("status").asText(), fr))
                     .append(" · ").append(x.path("lineCount").asInt()).append(fr ? " lignes" : " lines").append('\n');
         }
         return sb.toString().stripTrailing();
@@ -277,7 +297,7 @@ public class AnswerRenderer {
             }
             sb.append("- ").append(x.path("trackingNumber").asText()).append(" · ").append(x.path("customerName").asText())
                     .append(" · ").append(x.path("city").asText()).append(" · ").append(mad(x.path("amountDue"), fr))
-                    .append(" · ").append(x.path("status").asText()).append('\n');
+                    .append(" · ").append(statusWord(x.path("status").asText(), fr)).append('\n');
         }
         return sb.toString().stripTrailing();
     }
