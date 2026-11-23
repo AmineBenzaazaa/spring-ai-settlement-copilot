@@ -11,11 +11,14 @@ import { I18nService } from '../core/i18n.service';
         class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11.5px] font-medium"
         [class]="demo() ? 'border-amber-300/70 bg-amber-50 text-amber-800 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-200' : 'border-accent/30 bg-accent/10 text-accent'"
         [attr.title]="demo() ? i18n.t('demoModeHint') : i.description"
+        [attr.aria-label]="demo() ? i18n.t('demoMode') + '. ' + i18n.t('demoModeHint') : null"
+        tabindex="0"
         data-testid="mode-badge"
       >
         <span class="size-1.5 rounded-full" [class]="demo() ? 'bg-amber-500' : 'bg-accent'"></span>
         @if (demo()) {
-          {{ i18n.t('demoMode') }} <span class="opacity-70">· {{ i18n.t('noKey') }}</span>
+          {{ i18n.t('demoMode') }}
+          <svg viewBox="0 0 24 24" class="size-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
         } @else {
           {{ i18n.t('claudeMode') }} <span class="opacity-70">· {{ i.model }}</span>
         }

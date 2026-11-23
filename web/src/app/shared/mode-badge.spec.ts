@@ -11,7 +11,8 @@ describe('ModeBadge', () => {
     fixture.componentRef.setInput('info', info('demo', 'scripted-offline'));
     await fixture.whenStable();
     const badge = fixture.nativeElement.querySelector('[data-testid=mode-badge]') as HTMLElement;
-    expect(badge.textContent).toContain('no API key');
+    expect(badge.textContent).toContain('Demo mode');
+    expect(badge.getAttribute('title')).toContain('sample data');
     expect(badge.className).toContain('amber');
   });
 

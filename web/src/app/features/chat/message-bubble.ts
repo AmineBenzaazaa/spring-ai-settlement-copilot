@@ -18,14 +18,15 @@ const KIND_ICON: Record<string, string> = {
 @Component({
   selector: 'app-message-bubble',
   imports: [ChartCard, Logo],
+  host: { class: 'block' },
   template: `
     @if (message().role === 'user') {
       <div class="flex justify-end">
         <p class="max-w-[85%] rounded-2xl rounded-ee-md bg-accent px-4 py-2.5 text-sm text-accent-fg shadow-sm" data-testid="user-message">{{ message().text }}</p>
       </div>
     } @else {
-      <article class="flex gap-3" data-testid="assistant-message">
-        <app-logo [size]="30" class="mt-1" />
+      <article class="flex items-start gap-3" data-testid="assistant-message">
+        <app-logo [size]="32" />
         <div class="min-w-0 flex-1 rounded-2xl rounded-ss-md border border-line bg-panel px-4 py-3 shadow-sm">
           @if (!message().text && message().streaming) {
             <p class="flex items-center gap-2 text-sm text-muted">
@@ -45,16 +46,17 @@ const KIND_ICON: Record<string, string> = {
 
           @if (!message().streaming && (message().sources.length || message().verification)) {
             <footer class="mt-3 flex flex-wrap items-center gap-1.5 border-t border-line pt-3">
-              @if (message().verification; as v) {
-                @if (v.grounded) {
-                  <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[11px] font-medium text-success ring-1 ring-success/25" data-testid="grounded">
-                    ✓ {{ v.checkedAmounts ? v.checkedAmounts + ' ' + i18n.t('verified') : i18n.t('noAmounts') }}
-                  </span>
-                } @else {
-                  <span class="inline-flex items-center gap-1 rounded-full bg-danger/10 px-2 py-0.5 text-[11px] font-medium text-danger ring-1 ring-danger/25" data-testid="ungrounded">
-                    ⚠ {{ i18n.t('ungrounded') }} {{ v.ungrounded.join(', ') }}
-                  </span>
-                }
+              @if (message().verification && !message().verification!.grounded) {
+                <span class="inline-flex items-center gap-1 rounded-full bg-danger/10 px-2 py-0.5 text-[11px] font-medium text-danger ring-1 ring-danger/25" data-testid="ungrounded">
+                  ⚠ {{ i18n.t('ungrounded') }} {{ message().verification!.ungrounded.join(', ') }}
+                </span>
+              } @else if (!message().sources.length) {
+                <!-- nothing came from the data: an amount echoed from the question is not "verified" -->
+                <span class="inline-flex items-center gap-1 rounded-full bg-subtle px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-line" data-testid="no-records">{{ i18n.t('noRecords') }}</span>
+              } @else if (message().verification; as v) {
+                <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[11px] font-medium text-success ring-1 ring-success/25" data-testid="grounded">
+                  ✓ {{ v.checkedAmounts ? i18n.verified(v.checkedAmounts) : i18n.t('noAmounts') }}
+                </span>
               }
               @for (s of message().sources; track s.kind + s.id) {
                 @if (s.url) {
@@ -68,7 +70,6 @@ const KIND_ICON: Record<string, string> = {
                   </span>
                 }
               }
-              @if (message().durationMs) { <span class="ms-auto text-[11px] text-faint">{{ message().durationMs }} ms</span> }
             </footer>
           }
         </div>

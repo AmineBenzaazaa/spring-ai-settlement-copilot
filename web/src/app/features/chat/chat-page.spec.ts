@@ -29,7 +29,7 @@ describe('ChatPage', () => {
     const fixture = TestBed.createComponent(ChatPage);
     await fixture.whenStable();
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('[data-testid=mode-badge]')!.textContent).toContain('Offline demo model');
+    expect(el.querySelector('[data-testid=mode-badge]')!.textContent).toContain('Demo mode');
     expect(el.querySelector('[data-testid=user-chip]')!.textContent).toContain('atlas');
     const suggestions = el.querySelectorAll<HTMLButtonElement>('[data-testid=suggestion]');
     expect(suggestions.length).toBe(6);

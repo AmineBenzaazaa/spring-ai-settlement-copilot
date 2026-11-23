@@ -11,6 +11,7 @@ async function askAndWait(page: Page, question: string) {
   await page.getByTestId('send').click();
   const answer = page.getByTestId('assistant-message').nth(before);
   await expect(answer.getByTestId('grounded')).toBeVisible({ timeout: 45_000 });
+  await page.mouse.move(5, 5);
   await page.waitForTimeout(900); // let the chart animation finish
 }
 
@@ -30,9 +31,15 @@ test('capture screenshots', async ({ page }) => {
 
   await page.getByTestId('sign-in').click();
   await expect(page.getByTestId('suggestion').first()).toBeVisible();
+  await page.mouse.move(5, 5);
   await page.screenshot({ path: out('welcome') });
   await askAndWait(page, 'Why was statement #1 flagged?');
   await page.screenshot({ path: out('chat-statement-flagged') });
+
+  await page.getByRole('button', { name: 'New chat' }).click();
+  await expect(page.getByTestId('suggestion').first()).toBeVisible();
+  await askAndWait(page, 'Show open disputes over 400 MAD');
+  await page.screenshot({ path: out('chat-disputes') });
 
   await page.getByRole('button', { name: 'New chat' }).click();
   await expect(page.getByTestId('suggestion').first()).toBeVisible();
@@ -47,4 +54,9 @@ test('capture screenshots', async ({ page }) => {
   await page.getByTestId('lang-fr').click();
   await askAndWait(page, 'Quel livreur me doit le plus ?');
   await page.screenshot({ path: out('chat-courier-ranking-fr') });
+
+  // wide screen: the layout stays centred and balanced
+  await page.setViewportSize({ width: 2560, height: 1440 });
+  await page.waitForTimeout(600);
+  await page.screenshot({ path: out('wide-2560') });
 });

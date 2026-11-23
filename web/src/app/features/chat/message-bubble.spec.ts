@@ -38,7 +38,7 @@ describe('MessageBubble', () => {
     expect(chips).toHaveLength(2);
     expect((chips[0] as HTMLAnchorElement).href).toBe('http://desk/statements/1');
     expect(el.querySelector('[data-testid=grounded]')!.textContent).toContain('1');
-    expect(el.textContent).toContain('37 ms');
+    expect(el.textContent).not.toContain('37 ms'); // response time lives in the trace panel's details
   });
 
   it('warns about ungrounded amounts and shows errors', async () => {
@@ -50,7 +50,14 @@ describe('MessageBubble', () => {
   it('shows a streaming caret and "no amounts" for amount-free answers', async () => {
     const streaming = await render({ ...base, text: 'partial', streaming: true });
     expect(streaming.querySelector('.caret')).not.toBeNull();
-    const none = await render({ ...base, text: 'no data', verification: { grounded: true, checkedAmounts: 0, ungrounded: [] } });
+    const doc = { kind: 'doc' as const, id: 'd', label: 'Glossary', url: null };
+    const none = await render({ ...base, text: 'a definition', sources: [doc], verification: { grounded: true, checkedAmounts: 0, ungrounded: [] } });
     expect(none.querySelector('[data-testid=grounded]')!.textContent).toContain('No amounts');
+  });
+
+  it('says "No matching records" instead of "verified" when nothing came from the data', async () => {
+    const el = await render({ ...base, text: 'You have no open disputes over 400.00 MAD.', verification: { grounded: true, checkedAmounts: 1, ungrounded: [] } });
+    expect(el.querySelector('[data-testid=grounded]')).toBeNull();
+    expect(el.querySelector('[data-testid=no-records]')!.textContent).toContain('No matching records');
   });
 });

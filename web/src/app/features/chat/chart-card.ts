@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, effect, inject, input, viewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, computed, effect, inject, input, viewChild } from '@angular/core';
 import {
   ArcElement,
   BarController,
@@ -37,13 +37,31 @@ const SERIES = ['accent', 'signal', 'info', 'warn', 'danger', 'muted'];
       <figcaption class="mb-2 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted">
         {{ spec().title }}@if (spec().unit) { <span class="font-normal normal-case"> ({{ spec().unit }})</span> }
       </figcaption>
-      <div class="relative h-56"><canvas #canvas></canvas></div>
+      @if (compact()) {
+        <!-- fewer than 3 points: a chart says nothing a number can't, so show the numbers -->
+        <dl class="flex flex-wrap gap-3" data-testid="chart-summary">
+          @for (row of rows(); track row.label) {
+            <div class="min-w-36 rounded-lg border border-line bg-panel px-3 py-2">
+              <dt class="text-[12px] text-muted">{{ row.label }}</dt>
+              <dd class="mt-0.5 text-lg font-semibold tabular-nums text-fg">{{ row.value }}@if (spec().unit) { <span class="ms-1 text-[12px] font-normal text-muted">{{ spec().unit }}</span> }</dd>
+            </div>
+          }
+        </dl>
+      } @else {
+        <div class="relative h-56"><canvas #canvas></canvas></div>
+      }
     </figure>
   `,
 })
 export class ChartCard implements OnDestroy {
   readonly spec = input.required<ChartSpec>();
-  private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('canvas');
+  private readonly canvas = viewChild<ElementRef<HTMLCanvasElement>>('canvas');
+  protected readonly compact = computed(() => this.spec().labels.length < 3);
+  protected readonly rows = computed(() => {
+    const spec = this.spec();
+    const fmt = new Intl.NumberFormat(this.i18n.lang() === 'fr' ? 'fr-FR' : 'en-US', spec.unit ? { minimumFractionDigits: 2, maximumFractionDigits: 2 } : {});
+    return spec.labels.map((l, i) => ({ label: this.i18n.label(l), value: fmt.format(Number(spec.datasets[0]?.data[i] ?? 0)) }));
+  });
   private chart?: Chart;
   private readonly i18n = inject(I18nService);
   private readonly theme = inject(ThemeService);
@@ -56,7 +74,11 @@ export class ChartCard implements OnDestroy {
       const colours = (labels: string[]) => labels.map((l, i) => token(SEMANTIC[l] ?? SERIES[i % SERIES.length]));
       const ink = token('muted'), grid = token('line');
       this.chart?.destroy();
-      this.chart = new Chart(this.canvas().nativeElement, {
+      const canvas = this.canvas();
+      if (!canvas) {
+        return;
+      }
+      this.chart = new Chart(canvas.nativeElement, {
         type: spec.type,
         data: {
           labels: spec.labels.map((l) => this.i18n.label(l)),
@@ -66,6 +88,7 @@ export class ChartCard implements OnDestroy {
             backgroundColor: spec.type === 'doughnut' ? colours(spec.labels) : token(SERIES[i % SERIES.length]),
             borderColor: token('panel'),
             borderRadius: spec.type === 'bar' ? 6 : 0,
+            maxBarThickness: 56,
             borderWidth: spec.type === 'doughnut' ? 2 : 0,
           })),
         },

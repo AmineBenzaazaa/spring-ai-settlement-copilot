@@ -9,7 +9,7 @@ describe('TracePanel', () => {
   it('is empty before the first question', async () => {
     const fixture = TestBed.createComponent(TracePanel);
     await fixture.whenStable();
-    expect(fixture.nativeElement.textContent).toContain('Tool calls appear here');
+    expect(fixture.nativeElement.textContent).toContain('Each lookup appears here');
   });
 
   it('lists each tool call with arguments, status, rows and timing', async () => {
@@ -26,11 +26,15 @@ describe('TracePanel', () => {
     expect(items).toHaveLength(3);
     expect(items[0].textContent).toContain('findCourier()');
     expect(items[1].textContent).toContain('statementId: 12');
-    expect(items[1].textContent).toContain('Not found');
-    expect(items[1].textContent).toContain('Statement reconciliation');
+    expect(items[0].textContent).toContain('Listed your couriers');
+    expect(items[0].textContent).toContain('2 found');
+    expect(items[0].textContent).toContain('Technical details');
+    expect(items[1].textContent).toContain('Looked up the reconciliation of statement #12');
+    expect(items[1].textContent).toContain('not found');
     expect(items[2].textContent).toContain('not-json');
     expect(items[2].textContent).toContain('1 suspicious text neutralized');
     expect(fixture.nativeElement.textContent).toContain('live');
-    expect(fixture.nativeElement.textContent).toContain('Not grounded');
+    expect(fixture.nativeElement.textContent).toContain('Not verified');
+    expect(fixture.nativeElement.textContent).toContain('1 amount checked against your data');
   });
 });
