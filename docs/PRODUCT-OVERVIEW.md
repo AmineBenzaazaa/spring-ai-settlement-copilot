@@ -60,8 +60,8 @@ worse than no answer.
 | Backend unit and slice tests (JUnit 5, Mockito, WireMock, `@WebMvcTest`) | 145 |
 | Backend integration tests (Testcontainers pgvector + WireMock, including the Claude streaming path) | 18 |
 | AI evaluation suite: golden questions in English and French, build gate at 95 % | 23 cases, 100 % |
-| Web app tests (Vitest) | 40 |
-| Browser end-to-end on the full stack (Playwright) | 4 |
+| Web app tests (Vitest) | 45 |
+| Browser end-to-end on the full stack (Playwright) | 5 |
 
 Backend line coverage is 98.6 % (gate: 85 %). All suites run in CI.
 

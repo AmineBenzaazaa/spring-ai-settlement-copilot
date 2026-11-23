@@ -251,8 +251,8 @@ cd web && npm run e2e       # Playwright against the compose stack (PW_CHANNEL=c
 | Controllers + real security chain (401s, forged/expired/refresh tokens, SSE) | `@WebMvcTest` | 10 |
 | Full app on pgvector (Testcontainers) + settlement API in WireMock: chat flow, SSE over HTTP, tenant isolation, retries/circuit breaker, RAG, Claude path | `@SpringBootTest` | 18 |
 | AI evaluation suite: 23 golden questions EN/FR | `EvalSuiteIT`, gate ≥ 95 % | 1 (23 cases) |
-| Angular services and components | Vitest | 40 |
-| Browser e2e on the compose stack | Playwright | 4 |
+| Angular services and components | Vitest | 45 |
+| Browser e2e on the compose stack | Playwright | 5 |
 
 Backend line coverage is **98 %** (gate: 85 %); web line coverage 99 %.
 
