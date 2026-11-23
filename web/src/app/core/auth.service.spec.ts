@@ -39,13 +39,20 @@ describe('AuthService', () => {
 
     expect(username).toBe('atlas');
     expect(auth.isLoggedIn()).toBe(true);
-    expect(auth.user()).toMatchObject({ role: 'MERCHANT', merchantId: 1 });
+    expect(auth.user()).toMatchObject({ role: 'MERCHANT', merchantId: 1, merchantName: null });
     expect(JSON.parse(sessionStorage.getItem('settlement-copilot.session')!).refreshToken).toBe('r1');
+
+    // then the merchant's display name, for the header and the user menu
+    const me = http.expectOne('/api/auth/me');
+    expect(me.request.headers.get('Authorization')).toBe(`Bearer ${atlasToken}`);
+    me.flush({ username: 'atlas', merchantName: 'Atlas Home' });
+    expect(auth.user()?.merchantName).toBe('Atlas Home');
   });
 
   it('adds the bearer token to API calls', () => {
     auth.login('atlas', 'x').subscribe();
     http.expectOne('/api/auth/login').flush({ accessToken: atlasToken, refreshToken: 'r', expiresIn: 1 });
+    http.expectOne('/api/auth/me').flush({}, { status: 500, statusText: 'boom' }); // best effort: ignored
     TestBed.inject(HttpClient).get('/api/copilot/info').subscribe();
     expect(http.expectOne('/api/copilot/info').request.headers.get('Authorization')).toBe(`Bearer ${atlasToken}`);
   });
@@ -53,6 +60,7 @@ describe('AuthService', () => {
   it('refreshes the access token, and signs out when refresh fails', async () => {
     auth.login('atlas', 'x').subscribe();
     http.expectOne('/api/auth/login').flush({ accessToken: atlasToken, refreshToken: 'r1', expiresIn: 1 });
+    http.expectOne('/api/auth/me').flush({ merchantName: 'Atlas Home' });
 
     const ok = auth.refresh();
     const refresh = http.expectOne('/api/auth/refresh');

@@ -1,8 +1,30 @@
 import { Injectable, computed, signal } from '@angular/core';
 import { Lang } from './models';
+import { plural } from './describe';
 
 const DICTIONARY = {
   en: {
+    techDetails: 'Technical details',
+    noRecords: 'No matching records',
+    noRecordsHint: 'No matching records in your data, so there were no amounts to verify.',
+    responseTime: 'Response time:',
+    canSee: 'What I can see',
+    canSeeNote: 'Only your own data: I use your permissions, never more.',
+    seeBalances: 'Courier balances',
+    seeStatements: 'Statements and their reconciliation',
+    seeDisputes: 'Disputes',
+    seeOrders: 'Orders',
+    seeGlossary: 'The settlement glossary',
+    starters: 'Start with a question',
+    howItWorks: 'How it works',
+    close: 'Close',
+    topicCouriers: 'Couriers',
+    topicStatements: 'Statements',
+    topicDisputes: 'Disputes',
+    topicOrders: 'Orders',
+    topicGlossary: 'Definitions',
+    moreInfo: 'What does this mean?',
+    found: 'found',
     switchProduct: 'Switch product',
     suiteDispatch: 'Live parcel operations',
     suiteSettle: 'Courier cash settlement',
@@ -17,7 +39,7 @@ const DICTIONARY = {
     point2: 'Every amount verified, with links to the rows used',
     point3: 'Says so when the data is not there, instead of guessing',
     sampleHint: 'Sample merchants and a finance user. Password for all: demo-pass-123',
-    toolsTitle: 'What I can look up',
+    toolsTitle: 'Try asking',
     loading: 'Loading…',
     tagline: 'Ask your settlement data anything. Exact numbers, sources, no guessing.',
     signIn: 'Sign in',
@@ -33,27 +55,44 @@ const DICTIONARY = {
     stop: 'Stop',
     signOut: 'Sign out',
     newChat: 'New chat',
-    traceTitle: 'Agent trace',
-    traceEmpty: 'Tool calls appear here live while the copilot works.',
-    rows: 'rows',
+    traceTitle: 'What I looked up',
+    traceEmpty: 'Each lookup appears here, live, while I answer.',
     sources: 'Sources',
-    verified: 'amounts verified against the data',
     noAmounts: 'No amounts to verify',
     ungrounded: 'Not found in the data:',
     flagged: 'suspicious text neutralized',
     thinking: 'Working…',
     errorGeneric: 'Something went wrong. Please try again.',
-    welcome: 'What would you like to know?',
-    welcomeSub: 'Answers come from your live settlement data, with your own permissions. Every amount is checked.',
-    demoMode: 'Offline demo model',
-    demoModeHint: 'Runs offline with a deterministic model: same tools, checks and streaming as the Claude mode.',
+    welcome: 'Ask MSE Copilot about your courier cash',
+    welcomeSub: 'Ask in plain English or French. I answer from your MSE Settle data with exact figures, check every amount, and link to the rows I used.',
+    demoMode: 'Demo mode',
+    demoModeHint: 'Runs on sample data without an AI provider, with the same lookups and checks. When an Anthropic API key is configured, MSE Copilot answers with Claude.',
     claudeMode: 'Claude',
-    tools: 'tools',
-    noKey: 'no API key',
-    grounded: 'Grounded',
-    notGrounded: 'Not grounded',
+    grounded: 'Verified',
+    notGrounded: 'Not verified',
   },
   fr: {
+    techDetails: 'Détails techniques',
+    noRecords: 'Aucun enregistrement correspondant',
+    noRecordsHint: 'Aucun enregistrement correspondant dans vos données : aucun montant à vérifier.',
+    responseTime: 'Temps de réponse :',
+    canSee: 'Ce que je peux voir',
+    canSeeNote: 'Uniquement vos données : j’utilise vos droits, jamais plus.',
+    seeBalances: 'Soldes des livreurs',
+    seeStatements: 'Relevés et leur rapprochement',
+    seeDisputes: 'Litiges',
+    seeOrders: 'Commandes',
+    seeGlossary: 'Le glossaire du règlement',
+    starters: 'Commencez par une question',
+    howItWorks: 'Comment ça marche',
+    close: 'Fermer',
+    topicCouriers: 'Livreurs',
+    topicStatements: 'Relevés',
+    topicDisputes: 'Litiges',
+    topicOrders: 'Commandes',
+    topicGlossary: 'Définitions',
+    moreInfo: 'Qu’est-ce que cela veut dire ?',
+    found: 'trouvé',
     switchProduct: 'Changer de produit',
     suiteDispatch: 'Opérations colis en direct',
     suiteSettle: 'Règlement des encaissements',
@@ -68,7 +107,7 @@ const DICTIONARY = {
     point2: 'Chaque montant vérifié, avec les lignes sources',
     point3: "Le dit quand la donnée n'existe pas, sans deviner",
     sampleHint: 'Marchands exemples et un compte finance. Mot de passe : demo-pass-123',
-    toolsTitle: 'Ce que je peux consulter',
+    toolsTitle: 'Essayez',
     loading: 'Chargement…',
     tagline: 'Interrogez vos données de règlement. Chiffres exacts, sources, aucune supposition.',
     signIn: 'Se connecter',
@@ -84,23 +123,19 @@ const DICTIONARY = {
     stop: 'Arrêter',
     signOut: 'Déconnexion',
     newChat: 'Nouvelle conversation',
-    traceTitle: "Trace de l'agent",
-    traceEmpty: "Les appels d'outils s'affichent ici en direct.",
-    rows: 'lignes',
+    traceTitle: 'Ce que j’ai consulté',
+    traceEmpty: 'Chaque recherche s’affiche ici, en direct, pendant que je réponds.',
     sources: 'Sources',
-    verified: 'montants vérifiés dans les données',
     noAmounts: 'Aucun montant à vérifier',
     ungrounded: 'Introuvable dans les données :',
     flagged: 'texte suspect neutralisé',
     thinking: 'Analyse…',
     errorGeneric: 'Une erreur est survenue. Réessayez.',
-    welcome: 'Que voulez-vous savoir ?',
-    welcomeSub: 'Les réponses viennent de vos données de règlement, avec vos propres droits. Chaque montant est vérifié.',
-    demoMode: 'Modèle démo hors ligne',
-    demoModeHint: "Déterministe, sans clé d'API. Mêmes outils, garde-fous et streaming que Claude.",
+    welcome: 'Interrogez MSE Copilot sur vos encaissements',
+    welcomeSub: 'Posez vos questions en français ou en anglais. Je réponds à partir de vos données MSE Settle, avec des chiffres exacts vérifiés et un lien vers les lignes utilisées.',
+    demoMode: 'Mode démo',
+    demoModeHint: 'Fonctionne sur des données exemples, sans fournisseur d’IA, avec les mêmes recherches et vérifications. Avec une clé API Anthropic, MSE Copilot répond avec Claude.',
     claudeMode: 'Claude',
-    tools: 'outils',
-    noKey: "sans clé d'API",
     grounded: 'Vérifié',
     notGrounded: 'Non vérifié',
   },
@@ -136,12 +171,29 @@ const TOOL_LABELS: Record<Lang, Record<string, string>> = {
 
 export type I18nKey = keyof (typeof DICTIONARY)['en'];
 
+/** Clickable example questions in the side panel, grouped by topic (all answered by the offline model). */
+export const TOPICS: Record<Lang, { key: I18nKey; questions: string[] }[]> = {
+  en: [
+    { key: 'topicCouriers', questions: ['Which courier owes me the most?', 'How much does Speedex owe me?'] },
+    { key: 'topicStatements', questions: ['Why was statement #1 flagged?', 'List my statements'] },
+    { key: 'topicDisputes', questions: ['Show open disputes over 400 MAD', 'Show open disputes'] },
+    { key: 'topicOrders', questions: ['Delivered orders in Casablanca over 300 MAD'] },
+    { key: 'topicGlossary', questions: ['What does amount mismatch mean?', 'Give me an overview'] },
+  ],
+  fr: [
+    { key: 'topicCouriers', questions: ['Quel livreur me doit le plus ?', 'Combien me doit Speedex ?'] },
+    { key: 'topicStatements', questions: ['Pourquoi le relevé n°1 a-t-il été signalé ?'] },
+    { key: 'topicDisputes', questions: ['Montre les litiges ouverts de plus de 400 MAD'] },
+    { key: 'topicGlossary', questions: ['Que signifie un écart ?'] },
+  ],
+};
+
 export const SUGGESTIONS: Record<Lang, string[]> = {
   en: [
     'Which courier owes me the most?',
     'Show open disputes over 400 MAD',
     'Why was statement #1 flagged?',
-    'What does AMOUNT_MISMATCH mean?',
+    'What does amount mismatch mean?',
     'Give me an overview',
     'Why was statement #12 flagged?',
   ],
@@ -149,7 +201,7 @@ export const SUGGESTIONS: Record<Lang, string[]> = {
     'Quel livreur me doit le plus ?',
     'Montre les litiges ouverts de plus de 400 MAD',
     'Pourquoi le relevé n°1 a-t-il été signalé ?',
-    'Que signifie MISSING_FROM_STATEMENT ?',
+    'Que signifie un écart ?',
     'Combien me doit Speedex ?',
     'Quel livreur me devra le plus le mois prochain ?',
   ],
@@ -161,6 +213,7 @@ const STORAGE_KEY = 'settlement-copilot.lang';
 export class I18nService {
   readonly lang = signal<Lang>(initialLang());
   readonly suggestions = computed(() => SUGGESTIONS[this.lang()]);
+  readonly topics = computed(() => TOPICS[this.lang()]);
 
   t(key: I18nKey): string {
     return DICTIONARY[this.lang()][key];
@@ -169,6 +222,17 @@ export class I18nService {
   /** "AMOUNT_MISMATCH" -> "Amount mismatch"; other text is returned unchanged. */
   label(raw: string): string {
     return LABELS[this.lang()][raw] ?? (/^[A-Z][A-Z_]+$/.test(raw) ? raw.charAt(0) + raw.slice(1).toLowerCase().replaceAll('_', ' ') : raw);
+  }
+
+  /** "2 amounts checked against your data" / "1 montant vérifié dans vos données". */
+  verified(n: number): string {
+    return this.lang() === 'fr'
+      ? `${plural('fr', n, 'montant vérifié', 'montants vérifiés')} dans vos données`
+      : `${plural('en', n, 'amount', 'amounts')} checked against your data`;
+  }
+
+  rows(n: number): string {
+    return this.lang() === 'fr' ? plural('fr', n, 'ligne', 'lignes') : plural('en', n, 'row', 'rows');
   }
 
   tool(name: string): string {

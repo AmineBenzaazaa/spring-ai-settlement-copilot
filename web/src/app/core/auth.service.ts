@@ -11,6 +11,7 @@ interface TokenResponse {
 }
 
 const STORAGE_KEY = 'settlement-copilot.session';
+const NAME_KEY = 'settlement-copilot.merchant-name';
 
 /**
  * Signs in on the settlement platform (POST /api/auth/login, proxied by nginx) and keeps its JWT
@@ -23,10 +24,13 @@ export class AuthService {
   private readonly router = inject(Router);
 
   private readonly tokens = signal<TokenResponse | null>(this.restore());
+  /** The merchant's display name ("Atlas Home"), from GET /api/auth/me after sign-in. */
+  private readonly merchantName = signal<string | null>(readName());
   readonly accessToken = computed(() => this.tokens()?.accessToken ?? null);
   readonly user = computed<SessionUser | null>(() => {
     const token = this.accessToken();
-    return token ? decodeUser(token) : null;
+    const user = token ? decodeUser(token) : null;
+    return user ? { ...user, merchantName: this.merchantName() } : null;
   });
   readonly isLoggedIn = computed(() => {
     const user = this.user();
@@ -36,8 +40,24 @@ export class AuthService {
   login(username: string, password: string): Observable<SessionUser> {
     return this.http.post<TokenResponse>('/api/auth/login', { username, password }).pipe(
       tap((t) => this.store(t)),
+      tap(() => this.loadProfile()),
       map(() => this.user()!),
     );
+  }
+
+  /** Best effort: the UI falls back to "Merchant #id" if this fails. */
+  loadProfile(): void {
+    this.http.get<{ merchantName: string | null }>('/api/auth/me').subscribe({
+      next: (me) => {
+        this.merchantName.set(me.merchantName ?? null);
+        try {
+          sessionStorage.setItem(NAME_KEY, me.merchantName ?? '');
+        } catch {
+          /* storage unavailable */
+        }
+      },
+      error: () => undefined,
+    });
   }
 
   /** Swaps the refresh token for a new access token. Resolves false (and signs out) when it fails. */
@@ -58,8 +78,10 @@ export class AuthService {
 
   logout(): void {
     this.tokens.set(null);
+    this.merchantName.set(null);
     try {
       sessionStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(NAME_KEY);
     } catch {
       /* storage unavailable */
     }
@@ -82,6 +104,14 @@ export class AuthService {
     } catch {
       return null;
     }
+  }
+}
+
+function readName(): string | null {
+  try {
+    return sessionStorage.getItem(NAME_KEY) || null;
+  } catch {
+    return null;
   }
 }
 

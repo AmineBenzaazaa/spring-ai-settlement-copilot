@@ -69,5 +69,7 @@ export interface SessionUser {
   username: string;
   role: 'MERCHANT' | 'STAFF';
   merchantId: number | null;
+  /** Display name of the merchant, when known (null for staff). */
+  merchantName?: string | null;
   expiresAt: number;
 }
